@@ -1,0 +1,69 @@
+
+:root{
+    --white: #fff;
+    --blanco-azulado: #406aa6;
+    --azul:#4C92ca;
+    --azul-rey: #1c4292;
+    --azul-oscuro: #16356a;
+    --azul-claro: #b1c6d9;
+    --azul-neon: #54e1ef;
+    --black: #000;
+    --green: #45AA07;
+    --red: #aa0707;
+    --border: .1rem solid rgba(0, 0, 0, .1);
+    --border-hover: .1rem solid var(--black);
+    --box-shadow:0 .5rem 1rem rgba(0, 0, 0, .1);
+ }
+ 
+ *{
+     margin:0; padding:0;
+     box-sizing: border-box;
+     outline: none; border:none;
+     text-decoration: none;
+     color: var(--white);
+ }
+ 
+ .background{ 
+     width: 100%;
+     object-fit: contain;
+     background-repeat: no-repeat;
+     position: relative;
+ }
+ 
+ .container-perfil{ 
+    display: flex;
+    position: absolute;
+    padding: 40px;
+    margin-top: 150px;
+    margin-left: 100px!important;
+    background-color: var(--azul-oscuro);
+ }
+
+ .usuarios-table-rectangle-perfil{
+    width: 400px!important;
+    height: 600px!important;
+    border-radius: 56px;
+    background-color: #374f63;
+    padding: 0 30px;
+    text-align: center;
+    margin-right: 100px;
+}
+
+ .usuarios-img-perfil{
+    margin: 14px 0;
+    border-radius: 50%;
+    width: 90%;
+    transform: translate(1%,2%);
+}
+
+.correo-perfil{
+    margin-bottom: 0!important;
+    
+}
+
+.noticias-img-perfil{
+    display: block;
+    max-width: -webkit-fill-available;
+    width: 460px;
+    transform: translate(1%,2%);
+}

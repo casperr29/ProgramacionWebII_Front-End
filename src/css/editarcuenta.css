@@ -1,0 +1,47 @@
+.Editarcuentainputs{
+    width: 500px;
+    height: 40px;
+    transform: translate(5%, 5%);  
+    background-color: #4E90CA;
+    border: none;
+  color: white;
+  padding: 8px 4px;
+}
+.Editarcuentainputstext{
+    width: 500px;
+    height: 40px;
+    transform: translate(5%, 5%);  
+    background-color: #4E90CA;
+    border: none;
+  color: white;
+  padding: 8px 4px;
+}
+#nombrecompletoregistro{
+    width: 500px;
+    height: 40px;
+    transform: translate(50%, 5%);  
+    background-color: #4E90CA;
+    border: none;
+  color: white;
+  padding: 8px 4px;
+}
+#nombreusuarioEditar{
+    width: 500px;
+    height: 40px;
+    transform: translate(5%, 5%);  
+    background-color: #4E90CA;
+    border: none;
+  color: white;
+  padding: 8px 4px;
+}
+
+.Editarcuentasubmit{
+    width: 500px;
+    height: 40px;
+    transform: translate(5%, 5%);  
+    background-color: #1b425f;
+    border-radius: 97px;
+    border: none;
+  color: white;
+  padding: 8px 4px;
+}
