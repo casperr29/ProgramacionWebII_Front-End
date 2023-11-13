@@ -1,8 +1,65 @@
 import React from "react";
 import "../Components/EscribirArticulo.css";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import api from "../api.json";
+import Cookies from "universal-cookie";
+
+const url = api.link;
+const storageUrl = api.storageUrl;
+
 
 const EscribirArticulo = () => {
+
+  let user = {
+    _id: "null",
+    nombre_usuario: "null",
+  };
+
+  const [validated, HasBeenValidated] = useState(false);
+  const [auth, IsAuthorized] = useState(false);
+
+  const [profileData, setData] = useState(user);
+
+  const [newsTitle, setNewsTitle] = useState("");
+  const [newsDesc, setNewsDesc] = useState("");
+  const [newsImage, setNewsImage] = useState("");  
+
+  useEffect(() => {
+    onLoad();
+  }, []);
+
+  async function onLoad() {
+    const cookies = new Cookies();
+
+    const config = {
+      headers: { Authorization: `Bearer ${cookies.get("token")}` },
+    };
+
+    await axios
+      .get(url + "users/" + cookies.get("userId"), config)
+      .then((response) => {
+        IsAuthorized(true);
+        user._id = response.data.data._id;
+        user.nombre_usuario = response.data.data.nombre_usuario;
+       
+        setData(user);
+
+        setNewsTitle(user.nombre_usuario);
+        setNewsDesc(user.correo_usuario);
+        setNewsImage(user.imagen_usuario);
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    HasBeenValidated(true);
+  }
+
+
   /*funcion para ir al home*/
   let navigateHOME = useNavigate();
   const routeChange = () => {
@@ -45,14 +102,14 @@ const EscribirArticulo = () => {
         src="/assets/Backgroundimg.png"
         alt="Backgroundimg"
       ></img>
-      <div class="header-1">
+      <div className="header-1">
         <img
           className="header-logo"
           src="/assets/LogoFinal1.png"
           onClick={routeChange}
           alt="header-logo"
         ></img>
-        <a href="home" class="btn">
+        <a href="home" className="btn">
           {" "}
         </a>
         <input
@@ -66,7 +123,7 @@ const EscribirArticulo = () => {
           onClick={routeChangeeliminarusuario}
           alt="header-icon"
         ></img>
-        <a href="eliminarusuario" class="btn">
+        <a href="eliminarusuario" className="btn">
           {" "}
         </a>
         <img
@@ -75,7 +132,7 @@ const EscribirArticulo = () => {
           onClick={routeChangcrearv}
           alt="header-icon"
         ></img>
-        <a href="crearvideojuego" class="btn">
+        <a href="crearvideojuego" className="btn">
           {" "}
         </a>
         <img
@@ -84,7 +141,7 @@ const EscribirArticulo = () => {
           onClick={routeChangeuser}
           alt="Perfil-de-usuario"
         ></img>
-        <a href="login" class="btn">
+        <a href="login" className="btn">
           {" "}
         </a>
         <img
@@ -93,15 +150,16 @@ const EscribirArticulo = () => {
           onClick={routeChangebye}
           alt="header-icon"
         ></img>
-        <a href="login" class="btn">
+        <a href="login" className="btn">
           {" "}
         </a>
       </div>
+
       <div className="container">
         <div className="container-newarticle">
           <form>
             <div className="inputBox-image">
-              <label for="file" className="file-style">
+              <label htmlFor="file" className="file-style">
                 <img
                   className="img"
                   src="/assets/upload+to+cloud.png"

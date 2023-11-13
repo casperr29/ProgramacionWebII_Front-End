@@ -1,8 +1,12 @@
 import React from "react";
+import axios from "axios";
 import "../Components/CrearVideojuego.css";
+import api from "../api.json";
 import { useNavigate } from "react-router-dom";
 
 const CrearVideojuego = () => {
+ 
+
   /*funcion para ir al home*/
   let navigateHOME = useNavigate();
   const routeChange = () => {
@@ -44,14 +48,14 @@ const CrearVideojuego = () => {
         src="/assets/Backgroundimg.png"
         alt="Backgroundimg"
       ></img>
-      <div class="header-1">
+      <div className="header-1">
         <img
           className="header-logo"
           src="/assets/LogoFinal1.png"
           onClick={routeChange}
           alt="header-logo"
         ></img>
-        <a href="home" class="btn">
+        <a href="home" className="btn">
           {" "}
         </a>
         <input
@@ -65,7 +69,7 @@ const CrearVideojuego = () => {
           onClick={routeChangeeliminarusuario}
           alt="header-icon"
         ></img>
-        <a href="eliminarusuario" class="btn">
+        <a href="eliminarusuario" className="btn">
           {" "}
         </a>
         <img
@@ -74,7 +78,7 @@ const CrearVideojuego = () => {
           onClick={routeChangcrearv}
           alt="header-icon"
         ></img>
-        <a href="crearvideojuego" class="btn">
+        <a href="crearvideojuego" className="btn">
           {" "}
         </a>
         <img
@@ -83,7 +87,7 @@ const CrearVideojuego = () => {
           onClick={routeChangeuser}
           alt="Perfil-de-usuario"
         ></img>
-        <a href="login" class="btn">
+        <a href="login" className="btn">
           {" "}
         </a>
         <img
@@ -92,7 +96,7 @@ const CrearVideojuego = () => {
           onClick={routeChangebye}
           alt="header-icon"
         ></img>
-        <a href="login" class="btn">
+        <a href="login" className="btn">
           {" "}
         </a>
       </div>
@@ -100,7 +104,7 @@ const CrearVideojuego = () => {
         <div className="container-newarticle">
           <form>
             <div className="inputBox-image">
-              <label for="file" className="file-style">
+              <label htmlFor="file" className="file-style">
                 <img
                   className="img"
                   src="/assets/upload+to+cloud.png"

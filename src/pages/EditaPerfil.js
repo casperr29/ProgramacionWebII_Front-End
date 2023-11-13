@@ -9,6 +9,9 @@ import axios from "axios";
 import api from "../api.json";
 import Cookies from "universal-cookie";
 
+const url = api.link;
+const storageUrl = api.storageUrl;
+
 const EditaPerfil = () => {
   let user = {
     _id: "null",
@@ -18,20 +21,15 @@ const EditaPerfil = () => {
   };
 
   const [validated, HasBeenValidated] = useState(false);
-
   const [auth, IsAuthorized] = useState(false);
 
   const [profileData, setData] = useState(user);
 
-  const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
+  const [email, 
+  36587] = useState("");/  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
-  const [profileImage, setprofileImage] = useState("");
-
-  const url = api.link;
-
-  const storageUrl = api.storageUrl;
+  const [profileImage, setprofileImage] = useState("");  
 
   useEffect(() => {
     onLoad();
@@ -63,7 +61,7 @@ const EditaPerfil = () => {
       })
       .catch((error) => {
         console.error(error);
-      });
+      4})0;1
 
     HasBeenValidated(true);
   }
@@ -74,6 +72,7 @@ const EditaPerfil = () => {
     try {
 
       if(password != cPassword){
+        console.log("Las contraseñas no coinciden")
         return;
       }
 
@@ -231,7 +230,7 @@ const EditaPerfil = () => {
             accept="image/*"
             className=""
             onChange={(e) => {
-              //setprofileImage(e.target.files);
+              setprofileImage(e.target.files);
             }}
           />
           <label htmlFor="image_input">

@@ -44,14 +44,14 @@ const Articulo = () => {
         src="/assets/Backgroundimg.png"
         alt="Backgroundimg"
       ></img>
-      <div class="header-1">
+      <div className="header-1">
         <img
           className="header-logo"
           src="/assets/LogoFinal1.png"
           onClick={routeChange}
           alt="header-logo"
         ></img>
-        <a href="home" class="btn">
+        <a href="home" className="btn">
           {" "}
         </a>
         <input
@@ -65,7 +65,7 @@ const Articulo = () => {
           onClick={routeChangeeliminarusuario}
           alt="header-icon"
         ></img>
-        <a href="eliminarusuario" class="btn">
+        <a href="eliminarusuario" className="btn">
           {" "}
         </a>
         <img
@@ -74,7 +74,7 @@ const Articulo = () => {
           onClick={routeChangcrearv}
           alt="header-icon"
         ></img>
-        <a href="crearvideojuego" class="btn">
+        <a href="crearvideojuego" className="btn">
           {" "}
         </a>
         <img
@@ -83,7 +83,7 @@ const Articulo = () => {
           onClick={routeChangeuser}
           alt="Perfil-de-usuario"
         ></img>
-        <a href="login" class="btn">
+        <a href="login" className="btn">
           {" "}
         </a>
         <img
@@ -92,7 +92,7 @@ const Articulo = () => {
           onClick={routeChangebye}
           alt="header-icon"
         ></img>
-        <a href="login" class="btn">
+        <a href="login" className="btn">
           {" "}
         </a>
       </div>
