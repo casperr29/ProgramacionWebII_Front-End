@@ -25,8 +25,6 @@ const Home = () => {
     onLoad();
   }, []);
 
-  
-
   async function onLoad() {
     const cookies = new Cookies();
 
@@ -46,7 +44,6 @@ const Home = () => {
 
     ValidateSession();
   }
-
 
   /*funcion para ir al home*/
   let navigateHOME = useNavigate();
@@ -97,7 +94,6 @@ const Home = () => {
     <div>
       {auth ? (
         <div>
-          {" "}
           <img
             className="background"
             src="/assets/Backgroundimg.png"
@@ -110,46 +106,39 @@ const Home = () => {
               onClick={routeChange}
               alt="header-logo"
             ></img>
-            <a href="home" className="btn">
-              {" "}
-            </a>
+
             <input
               className="header-inputs"
               type="text"
               placeholder="Buscar..."
             ></input>
+
             <img
               className="header-icon"
               src="/assets/block-user.png"
               onClick={routeChangeeliminarusuario}
-              alt="header-icon"
+              alt="Eliminar-Usuario-img"
             ></img>
-            <a href="login" className="btn">
-              {" "}
-            </a>
+
             <img
               className="header-icon"
               src="/assets/page.png"
               onClick={routeChangcrearv}
-              alt="header-icon"
+              alt="Crear-Publicacion-img"
             ></img>
-            <a href="login" className="btn">
-              {" "}
-            </a>
+
             <img
               className="header-icon"
               src="/assets/newusericon.png"
               onClick={routeChangeuser}
-              alt="Perfil-de-usuario"
+              alt="Perfil-de-usuario-img"
             ></img>
-            <a href="login" className="btn">
-              {" "}
-            </a>
+
             <img
               className="header-icon"
               src="/assets/cerrar-sesion.png"
               onClick={routeChangebye}
-              alt="header-icon"
+              alt="Cerrar-sesion-img"
             ></img>
           </div>
           <div className="div-container1">

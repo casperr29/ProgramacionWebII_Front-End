@@ -25,11 +25,11 @@ const EditaPerfil = () => {
 
   const [profileData, setData] = useState(user);
 
-  const [email, 
-  36587] = useState("");/  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
-  const [profileImage, setprofileImage] = useState("");  
+  const [profileImage, setprofileImage] = useState("");
 
   useEffect(() => {
     onLoad();
@@ -51,7 +51,7 @@ const EditaPerfil = () => {
         user.correo_usuario = response.data.data.correo_usuario;
         user.imagen_usuario =
           storageUrl + response.data.data.foto_usuario.file_name;
-        
+
         setData(user);
 
         setUserName(user.nombre_usuario);
@@ -61,7 +61,7 @@ const EditaPerfil = () => {
       })
       .catch((error) => {
         console.error(error);
-      4})0;1
+      });
 
     HasBeenValidated(true);
   }
@@ -70,20 +70,22 @@ const EditaPerfil = () => {
     e.preventDefault();
 
     try {
-
-      if(password != cPassword){
-        console.log("Las contraseñas no coinciden")
+      if (password != cPassword) {
+        console.log("Las contraseñas no coinciden");
         return;
       }
 
-      const response = await axios.patch(url + "update_prof_pic/" + profileData._id, {
-        correo_usuario: email,
-        password_usuario: password,
-        nombre_usuario: userName,
-      });
+      const response = await axios.patch(
+        url + "update_prof_pic/" + profileData._id,
+        {
+          correo_usuario: email,
+          password_usuario: password,
+          nombre_usuario: userName,
+        }
+      );
 
       console.log(response.data);
-    
+
       let pathProfile = "Perfil";
       navigateHOME(`/${pathProfile}`);
     } catch (error) {
@@ -95,26 +97,28 @@ const EditaPerfil = () => {
     e.preventDefault();
 
     try {
-
       const cookies = new Cookies();
 
       const config = {
         headers: { Authorization: `Bearer ${cookies.get("token")}` },
       };
 
-      if(password != cPassword){
+      if (password != cPassword) {
         return;
       }
 
-
-      const response = await axios.patch(url + "users/" + profileData._id, {
-        correo_usuario: email,
-        password_usuario: password ===""? undefined : password,
-        nombre_usuario: userName,
-      }, config);
+      const response = await axios.patch(
+        url + "users/" + profileData._id,
+        {
+          correo_usuario: email,
+          password_usuario: password === "" ? undefined : password,
+          nombre_usuario: userName,
+        },
+        config
+      );
 
       console.log(response.data);
-    
+
       let pathProfile = "Perfil";
       navigateHOME(`/${pathProfile}`);
     } catch (error) {
@@ -156,148 +160,147 @@ const EditaPerfil = () => {
     navigateuser(`/${pathuser}`);
   };
   return (
-    <div><div>
-    <img
-    className="backgroundeliminate"
-    src="/assets/Backgroundimg.png"
-    alt="Backgroundimg"
-  ></img>
-  <div className="header-1">
-    <img
-      className="header-logo"
-      src="/assets/LogoFinal1.png"
-      onClick={routeChange}
-      alt="header-logo"
-    ></img>
-    <a href="home" className="btn">
-      {" "}
-    </a>
-    <input
-      className="header-inputs"
-      type="text"
-      placeholder="Buscar..."
-    ></input>
-    <img
-      className="header-icon"
-      src="/assets/block-user.png"
-      onClick={routeChangeeliminarusuario}
-      alt="header-icon"
-    ></img>
-    <a href="eliminarusuario" className="btn">
-      {" "}
-    </a>
-    <img
-      className="header-icon"
-      src="/assets/page.png"
-      onClick={routeChangcrearv}
-      alt="header-icon"
-    ></img>
-    <a href="crearvideojuego" className="btn">
-      {" "}
-    </a>
-    <img
-      className="header-icon"
-      src="/assets/newusericon.png"
-      onClick={routeChangeuser}
-      alt="Perfil-de-usuario"
-    ></img>
-    <a href="login" className="btn">
-      {" "}
-    </a>
-    <img
-      className="header-icon"
-      src="/assets/cerrar-sesion.png"
-      onClick={routeChangebye}
-      alt="header-icon"
-    ></img>
-    <a href="login" className="btn">
-      {" "}
-    </a>
-  </div>
-
-  <form onSubmit={handleEditSubmit}>
-    <div className="container-perfil">
-      <div className="usuarios-table-rectangle-perfil">
-        <div className="usuario-info-perfil">
+    <div>
+      <div>
+        <img
+          className="backgroundeliminate"
+          src="/assets/Backgroundimg.png"
+          alt="Backgroundimg"
+        ></img>
+        <div className="header-1">
           <img
-            className="usuarios-img-perfil"
-            src={profileImage}
-            alt="usuarios-img-perfil"
+            className="header-logo"
+            src="/assets/LogoFinal1.png"
+            onClick={routeChange}
+            alt="header-logo"
           ></img>
+          <a href="home" className="btn">
+            {" "}
+          </a>
           <input
-            type="file"
-            id="image_input"
-            accept="image/*"
-            className=""
-            onChange={(e) => {
-              setprofileImage(e.target.files);
-            }}
-          />
-          <label htmlFor="image_input">
-            Seleccionar foto a la cual quiera cambiar
-          </label>
-          <br></br>
-          <label className="usuario"></label>
-          <br></br>
-          <label className="correo"></label>
-        </div>
-      </div>
-      <div className="noticias-perfil">
-        <h3>Editar Usuario</h3>
-
-        <br></br>
-        <input
-          className="Editarcuentainputs"
-          type="email"
-          placeholder="Correo Electronico"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-
-        ></input>
-        <br></br>
-        <br></br>
-        <br></br>
-        <input
-          className="Editarcuentainputstext"
-          id="nombreusuarioEditar"
-          type="text"
-          placeholder="Nombre de Usuario"
-          value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-        ></input>
-        <br></br>
-        <br></br>
-        <input
-          className="Editarcuentainputs"
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            className="header-inputs"
+            type="text"
+            placeholder="Buscar..."
           ></input>
-        <br></br>
-        <br></br>
-        <input
-          className="Editarcuentainputs"
-          type="password"
-          placeholder="Confirmar Contraseña"
-          value={cPassword}
-          onChange={(e) => setCPassword(e.target.value)}
-        ></input>
-        <br></br>
-        <br></br>
-        <input
-          className="Editarcuentasubmit"
-          type="submit"
-          placeholder="Confirmar Cambios"
-        ></input>
+          <img
+            className="header-icon"
+            src="/assets/block-user.png"
+            onClick={routeChangeeliminarusuario}
+            alt="header-icon"
+          ></img>
+          <a href="eliminarusuario" className="btn">
+            {" "}
+          </a>
+          <img
+            className="header-icon"
+            src="/assets/page.png"
+            onClick={routeChangcrearv}
+            alt="header-icon"
+          ></img>
+          <a href="crearvideojuego" className="btn">
+            {" "}
+          </a>
+          <img
+            className="header-icon"
+            src="/assets/newusericon.png"
+            onClick={routeChangeuser}
+            alt="Perfil-de-usuario"
+          ></img>
+          <a href="login" className="btn">
+            {" "}
+          </a>
+          <img
+            className="header-icon"
+            src="/assets/cerrar-sesion.png"
+            onClick={routeChangebye}
+            alt="header-icon"
+          ></img>
+          <a href="login" className="btn">
+            {" "}
+          </a>
+        </div>
+
+        <form onSubmit={handleEditSubmit}>
+          <div className="container-perfil">
+            <div className="usuarios-table-rectangle-perfil">
+              <div className="usuario-info-perfil">
+                <img
+                  className="usuarios-img-perfil"
+                  src={profileImage}
+                  alt="usuarios-img-perfil"
+                ></img>
+                <input
+                  type="file"
+                  id="image_input"
+                  accept="image/*"
+                  className=""
+                  onChange={(e) => {
+                    setprofileImage(e.target.files);
+                  }}
+                />
+                <label htmlFor="image_input">
+                  Seleccionar foto a la cual quiera cambiar
+                </label>
+                <br></br>
+                <label className="usuario"></label>
+                <br></br>
+                <label className="correo"></label>
+              </div>
+            </div>
+            <div className="noticias-perfil">
+              <h3>Editar Usuario</h3>
+
+              <br></br>
+              <input
+                className="Editarcuentainputs"
+                type="email"
+                placeholder="Correo Electronico"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              ></input>
+              <br></br>
+              <br></br>
+              <br></br>
+              <input
+                className="Editarcuentainputstext"
+                id="nombreusuarioEditar"
+                type="text"
+                placeholder="Nombre de Usuario"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              ></input>
+              <br></br>
+              <br></br>
+              <input
+                className="Editarcuentainputs"
+                type="password"
+                placeholder="Contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              ></input>
+              <br></br>
+              <br></br>
+              <input
+                className="Editarcuentainputs"
+                type="password"
+                placeholder="Confirmar Contraseña"
+                value={cPassword}
+                onChange={(e) => setCPassword(e.target.value)}
+              ></input>
+              <br></br>
+              <br></br>
+              <input
+                className="Editarcuentasubmit"
+                type="submit"
+                placeholder="Confirmar Cambios"
+              ></input>
+            </div>
+          </div>
+        </form>
       </div>
-    </div>
-  </form>
-  </div>
       {/* {auth? (): (
         <Navigate to={"/login"} replace={true} />
       )} */}
-      
     </div>
   );
 };

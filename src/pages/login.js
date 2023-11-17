@@ -11,10 +11,28 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  let navigateHOME = useNavigate();
+  let navigateHome = useNavigate();
 
-  const handleSubmit = async (e) => {
+  function validateLoginForm() {
+    let email = document.forms["loginForm"]["loginIEmail"].value,
+      pass = document.forms["loginForm"]["loginIPass"].value;
+
+    if (email === "") {
+      alert("Ingrese un email valido");
+      return false;
+    }
+    if (pass === "") {
+      alert("Ingrese la contraseña");
+      return false;
+    }
+
+    return true;
+  }
+
+  const loginUser = async (e) => {
     e.preventDefault();
+
+    if (!validateLoginForm()) return;
 
     try {
       const response = await axios.post(url + "users/login", {
@@ -23,25 +41,43 @@ const Login = () => {
       });
 
       console.log(response.data);
-      const cookies = new Cookies();
 
+      const cookies = new Cookies();
       cookies.set("token", response.data.token, { path: "/" });
       cookies.set("userId", response.data.data._id, { path: "/" });
-      let pathHOME = "home";
-      navigateHOME(`/${pathHOME}`);
+
+      let pathHome = "home";
+      navigateHome(`/${pathHome}`);
     } catch (error) {
-      console.error(error);
+      /*MANEJO DE ERRORES Y ADVERTENCIAS*/
+      const status = error.response.status;
+
+      if (status !== 200 && status) {
+        if (status === 404) {
+          alert("El correo ingresado no está asociado a ninguna cuenta");
+        }
+        if (status === 401) {
+          alert("El correo o la contraseña son incorrectos");
+        }
+      }
+      //console.error(error.response.data.message);
     }
   };
 
   return (
     <div className="background">
       <div className="login-rectangle">
-        <img className="loginlogo" src="assets/LogoFinal1.png"></img>
-        <form onSubmit={handleSubmit}>
+        <img
+          className="loginlogo"
+          src="assets/LogoFinal1.png"
+          alt="LogoMewNews"
+        ></img>
+        <form name="loginForm" onSubmit={loginUser}>
           <br></br>
 
           <input
+            name="loginIEmail"
+            id="loginIEmail"
             className="login-inputs"
             type="email"
             placeholder="Correo Electronico"
@@ -50,15 +86,20 @@ const Login = () => {
           />
           <br></br>
           <br></br>
+
           <input
+            name="loginIPass"
+            id="loginIPass"
             className="login-inputs"
             type="password"
             placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+
           <br></br>
           <br></br>
+
           <input
             className="login-submit"
             type="submit"

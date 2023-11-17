@@ -1,71 +1,80 @@
-.background{ 
-    width: 100%;
-    object-fit: contain;
-    background-repeat: no-repeat;
-    position: fixed;
+.background {
+  width: 100%;
+  object-fit: contain;
+  background-repeat: no-repeat;
+  position: fixed;
 }
 
-.div-container1{
-    height: 850px;
-    position: absolute;
-    top: 0px;
+.div-container1 {
+  height: 850px;
+  position: absolute;
+  top: 0px;
 }
 
-.categories{
-    background-color: #284A6A;
-    height: 60px;
-    position: absolute;
-    top: 50px;
-    width: 1000px; 
-    transform: translate(25%,100%);
-    align-items: center;
-    justify-content: center;
-    border-radius: 97px;
+.categories {
+  background-color: #284a6a;
+  height: 60px;
+  position: absolute;
+  top: 50px;
+  width: 1000px;
+  transform: translate(25%, 100%);
+  align-items: center;
+  justify-content: center;
+  border-radius: 97px;
 }
 
-.categoria-table{
-    transform: translate(2%,0%);
-    width: 98%;
+.categoria-table {
+  transform: translate(2%, 0%);
+  width: 98%;
 }
 
-.categoria-table th{
-    color: #ffffff;
-    font-family: "Inter", Helvetica;
-    font-size: 36px;
-    font-weight: 400;    
+.categoria-table th {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 36px;
+  font-weight: 400;
 }
 
-.noticiashome{
-    height: 500px;
-    transform: translate(10%,20%);
-    position: absolute;
-    top: 100px;
-    width: 1250px;
+.noticiashome {
+  height: 500px;
+  transform: translate(10%, 20%);
+  position: absolute;
+  top: 100px;
+  width: 1250px;
 }
 
-.noticias-table{
-    transform: translate(2%,1%);
-    width: 98%;
+.noticias-table {
+  transform: translate(2%, 1%);
+  width: 98%;
 }
 
-.noticias-table td{
-    color: #ffffff;
-    font-family: "Inter", Helvetica;
-    font-size: 26px;
-    font-weight: 400;   
+.noticias-table td {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 26px;
+  font-weight: 400;
 }
-.noticias-table-rectangle-component{
-    width: 31%;
-    height: 490px;
-    background-color: #406AA6;
-}
-
-.noticias-img{
-    width: 360px;
-    transform: translate(1%,2%);
+.noticias-table-rectangle-component {
+  width: 31%;
+  height: 490px;
+  background-color: #406aa6;
 }
 
-.titulo{
-    color: #92E9F2;
-    font-size: 30px;
+.noticias-img {
+  width: 360px;
+  transform: translate(1%, 2%);
+}
+
+.titulo {
+  color: #92e9f2;
+  font-size: 30px;
+}
+
+.header-logo {
+  cursor: pointer;
+}
+
+.header-icon {
+  margin: 0.6rem;
+  cursor: pointer;
 }
