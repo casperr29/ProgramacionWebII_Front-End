@@ -45,6 +45,7 @@ const Login = () => {
       const cookies = new Cookies();
       cookies.set("token", response.data.token, { path: "/" });
       cookies.set("userId", response.data.data._id, { path: "/" });
+      cookies.set("permission", response.data.data.tipo_usuario, { path: "/" });
 
       let pathHome = "home";
       navigateHome(`/${pathHome}`);

@@ -23,8 +23,9 @@ const Home = () => {
 
   useEffect(() => {
     onLoad();
-  }, []);
+  });
 
+  //AL CARGAR LA PAGINA
   async function onLoad() {
     const cookies = new Cookies();
 
@@ -43,49 +44,45 @@ const Home = () => {
       });
 
     ValidateSession();
+
+    if (cookies.get("permission")) {
+    }
   }
 
+  /*Navegacion generica*/
+  let navigateTo = useNavigate();
+
   /*funcion para ir al home*/
-  let navigateHOME = useNavigate();
-  const routeChange = () => {
-    let pathHOME = "home";
-    navigateHOME(`/${pathHOME}`);
+  const routeChangeHome = () => {
+    navigateTo(`/${"home"}`);
   };
+
   /*funcion para ir al eliminarusuario*/
-  let navigateeliminarusuario = useNavigate();
   const routeChangeeliminarusuario = () => {
-    let patheliminarusuario = "eliminarusuario";
-    navigateeliminarusuario(`/${patheliminarusuario}`);
+    navigateTo(`/${"eliminarusuario"}`);
   };
 
   /*funcion para ir al crearvideojuego*/
-  let navigatecrearv = useNavigate();
   const routeChangcrearv = () => {
-    let pathcrearv = "crearvideojuego";
-    navigatecrearv(`/${pathcrearv}`);
+    navigateTo(`/${"crearvideojuego"}`);
   };
 
   /*funcion para ir al cerrarsesión*/
-  let navigatebye = useNavigate();
   const routeChangebye = () => {
-    let pathbye = "login";
-    navigatebye(`/${pathbye}`);
+    navigateTo(`/${"login"}`);
   };
 
   /*funcion para ir al perfil*/
-  let navigateuser = useNavigate();
   const routeChangeuser = () => {
-    let pathuser = "perfil";
-    navigateuser(`/${pathuser}`);
+    navigateTo(`/${"perfil"}`);
   };
 
   /*funcion para ir al articulo*/
-  let navigatearticulo = useNavigate();
   const routeChangearticulo = () => {
-    let patharticulo = "articulo/";
-    navigatearticulo(`/${patharticulo}`);
+    navigateTo(`/${"articulo/"}`);
   };
 
+  //En caso de no estar logeado, lo envia a logearse
   if (!validated) {
     return null;
   }
@@ -103,7 +100,7 @@ const Home = () => {
             <img
               className="header-logo"
               src="/assets/LogoFinal1.png"
-              onClick={routeChange}
+              onClick={routeChangeHome}
               alt="header-logo"
             ></img>
 
@@ -114,7 +111,7 @@ const Home = () => {
             ></input>
 
             <img
-              className="header-icon"
+              className="header-icon admin-only"
               src="/assets/block-user.png"
               onClick={routeChangeeliminarusuario}
               alt="Eliminar-Usuario-img"
