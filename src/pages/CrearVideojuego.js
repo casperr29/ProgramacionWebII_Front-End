@@ -1,11 +1,9 @@
 import React from "react";
-import axios from "axios";
-import "../Components/CrearVideojuego.css";
-import api from "../api.json";
+import "../css/CrearVideojuego.css";
 import { useNavigate } from "react-router-dom";
 
 const CrearVideojuego = () => {
- 
+
 
   /*funcion para ir al home*/
   let navigateHOME = useNavigate();

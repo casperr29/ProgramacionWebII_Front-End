@@ -1,5 +1,5 @@
 import React from "react";
-import "../Components/EliminarUsuario.css";
+import "../css/EliminarUsuario.css";
 import { useNavigate } from "react-router-dom";
 
 const EliminarUsuario = () => {

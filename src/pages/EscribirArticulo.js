@@ -1,14 +1,14 @@
 import React from "react";
-import "../Components/EscribirArticulo.css";
+import "../css/EscribirArticulo.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+//import { useState } from "react";
 import axios from "axios";
-import api from "../api.json";
+import api from '../utilities/api.json';
 import Cookies from "universal-cookie";
 
 const url = api.link;
-const storageUrl = api.storageUrl;
+//const storageUrl = api.storageUrl;
 
 
 const EscribirArticulo = () => {
@@ -18,14 +18,14 @@ const EscribirArticulo = () => {
     nombre_usuario: "null",
   };
 
-  const [validated, HasBeenValidated] = useState(false);
-  const [auth, IsAuthorized] = useState(false);
+  // const [validated, HasBeenValidated] = useState(false);
+  // const [auth, IsAuthorized] = useState(false);
 
-  const [profileData, setData] = useState(user);
+  //const [profileData, setData] = useState(user);
 
-  const [newsTitle, setNewsTitle] = useState("");
-  const [newsDesc, setNewsDesc] = useState("");
-  const [newsImage, setNewsImage] = useState("");  
+  // const [newsTitle, setNewsTitle] = useState("");
+  // const [newsDesc, setNewsDesc] = useState("");
+  // const [newsImage, setNewsImage] = useState("");
 
   useEffect(() => {
     onLoad();
@@ -41,22 +41,22 @@ const EscribirArticulo = () => {
     await axios
       .get(url + "users/" + cookies.get("userId"), config)
       .then((response) => {
-        IsAuthorized(true);
+        //IsAuthorized(true);
         user._id = response.data.data._id;
         user.nombre_usuario = response.data.data.nombre_usuario;
-       
-        setData(user);
 
-        setNewsTitle(user.nombre_usuario);
-        setNewsDesc(user.correo_usuario);
-        setNewsImage(user.imagen_usuario);
+        //setData(user);
+
+        // setNewsTitle(user.nombre_usuario);
+        // setNewsDesc(user.correo_usuario);
+        // setNewsImage(user.imagen_usuario);
         console.log(user);
       })
       .catch((error) => {
         console.error(error);
       });
 
-    HasBeenValidated(true);
+    //HasBeenValidated(true);
   }
 
 

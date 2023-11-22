@@ -1,12 +1,7 @@
-import React from 'react'
+import React from 'react';
 import "../css/home.css";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { Navigate } from "react-router-dom";
-import axios from "axios";
-import api from "../api.json";
 
-const url = api.link;
 
 
 const Noticias=()=> {
@@ -20,7 +15,7 @@ const Noticias=()=> {
   return (
     //Algo que vi es que puedes usar un for each desde el div className="noticias-table-rectangle-component" para ir llenando los datos
     <section className="noticias-table">
-        
+
         <div className="noticias-table-rectangle-component">
            <img
                className="noticias-img"
@@ -35,7 +30,7 @@ const Noticias=()=> {
               <label>Descripción...</label>
           </div>
     </section>
-    
+
   )
 }
 

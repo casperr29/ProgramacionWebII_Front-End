@@ -1,5 +1,5 @@
 import React from "react";
-import "../Components/AprobarArticulo.css";
+import "../css/AprobarArticulo.css";
 import { useNavigate } from "react-router-dom";
 
 const AprobarArticulo = () => {

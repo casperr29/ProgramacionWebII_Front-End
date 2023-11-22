@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../css/createcuenta.css";
-import api from "../api.json";
-import Utilities from "../js/utilities.services";
+import api from '../utilities/api.json';
+import Utilities from "../utilities/utilities.services";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 

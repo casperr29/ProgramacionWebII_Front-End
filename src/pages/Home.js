@@ -1,21 +1,20 @@
-import React from "react";
-import "../css/home.css";
-import { useCallback, useEffect, useState } from "react";
-import axios from "axios";
-import api from "../api.json";
-import Cookies from "universal-cookie";
-import { useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
-import NoticiasList from "../Components/NoticiasList";
+import React from 'react';
+import '../css/home.css';
+import { useCallback, useEffect, useState } from 'react';
+import axios from 'axios';
+import api from '../utilities/api.json';
+import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import NoticiasList from '../components/NoticiasList';
 
 const Home = () => {
-  let news = [];
   const [validated, HasBeenValidated] = useState(false);
   const [auth, IsAuthorized] = useState(false);
-  const [newsData, setData] = useState(news);
+  // const [newsData, setData] = useState(news);
 
   const url = api.link;
-  const storageUrl = api.storageUrl;
+  //const storageUrl = api.storageUrl;
 
   const ValidateSession = useCallback(() => {
     HasBeenValidated(true);
@@ -25,16 +24,16 @@ const Home = () => {
     onLoad();
   });
 
-  //AL CARGAR LA PAGINA
+  // AL CARGAR LA PAGINA
   async function onLoad() {
     const cookies = new Cookies();
 
     const config = {
-      headers: { Authorization: `Bearer ${cookies.get("token")}` },
+      headers: { Authorization: `Bearer ${cookies.get('token')}` },
     };
 
     await axios
-      .get(url + "users/" + cookies.get("userId"), config)
+      .get(url + 'users/' + cookies.get('userId'), config)
       .then((response) => {
         IsAuthorized(true);
         console.log(response.data);
@@ -44,45 +43,42 @@ const Home = () => {
       });
 
     ValidateSession();
-
-    if (cookies.get("permission")) {
-    }
   }
 
-  /*Navegacion generica*/
+  /* Navegacion generica */
   let navigateTo = useNavigate();
 
-  /*funcion para ir al home*/
+  /* funcion para ir al home */
   const routeChangeHome = () => {
-    navigateTo(`/${"home"}`);
+    navigateTo(`/${'home'}`);
   };
 
-  /*funcion para ir al eliminarusuario*/
+  /* funcion para ir al eliminarusuario */
   const routeChangeeliminarusuario = () => {
-    navigateTo(`/${"eliminarusuario"}`);
+    navigateTo(`/${'eliminarusuario'}`);
   };
 
-  /*funcion para ir al crearvideojuego*/
+  /* funcion para ir al crearvideojuego */
   const routeChangcrearv = () => {
-    navigateTo(`/${"crearvideojuego"}`);
+    navigateTo(`/${'crearvideojuego'}`);
   };
 
-  /*funcion para ir al cerrarsesión*/
+  /* funcion para ir al cerrarsesión */
   const routeChangebye = () => {
-    navigateTo(`/${"login"}`);
+    navigateTo(`/${'login'}`);
   };
 
-  /*funcion para ir al perfil*/
+  /* funcion para ir al perfil */
   const routeChangeuser = () => {
-    navigateTo(`/${"perfil"}`);
+    navigateTo(`/${'perfil'}`);
   };
 
-  /*funcion para ir al articulo*/
-  const routeChangearticulo = () => {
-    navigateTo(`/${"articulo/"}`);
-  };
+  /* funcion para ir al articulo */
+  // const routeChangearticulo = () => {
+  //   navigateTo(`/${'articulo/'}`);
+  // };
 
-  //En caso de no estar logeado, lo envia a logearse
+  // En caso de no estar logeado, lo envia a logearse
   if (!validated) {
     return null;
   }
@@ -163,7 +159,7 @@ const Home = () => {
           </div>
         </div>
       ) : (
-        <Navigate to={"/login"} replace={true} />
+        <Navigate to={'/login'} replace={true} />
       )}
     </div>
   );

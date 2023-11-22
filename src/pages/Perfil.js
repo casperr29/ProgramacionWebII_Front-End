@@ -1,11 +1,11 @@
 import React from "react";
-import "../Components/Perfil.css";
+import "../css/Perfil.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import api from "../api.json";
+import api from '../utilities/api.json';
 import Cookies from "universal-cookie";
 
 const Perfil = () => {

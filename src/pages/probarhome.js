@@ -1,15 +1,15 @@
 import React from 'react'
 import "../css/home.css";
-import "../Components/Noticias.js";
-import Noticias from '../Components/Noticias.js';
+import "../components/Noticias.js";
+import Noticias from '../components/Noticias.js';
 const Probarhome = () => {
-  
+
 //puedes ignorar este js, era solo para probarlo
 
 
   return (
     <div>
-      
+
         <div>
           {" "}
           <img
@@ -90,7 +90,7 @@ const Probarhome = () => {
             </div>
           </div>
         </div>
-      
+
     </div>
   )
 }

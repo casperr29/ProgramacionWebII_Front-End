@@ -1,18 +1,20 @@
-import { Routes, Route } from "react-router-dom";
-import "./App.css";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import './css/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Landing from "./pages/Landing";
-import Home from "./pages/Home";
-import Articulo from "./pages/Articulo";
-import Login from "./pages/login";
-import CrearCuenta from "./pages/CrearCuenta";
-import Perfil from "./pages/Perfil";
-import CrearVideojuego from "./pages/CrearVideojuego";
-import EscribirArticulo from "./pages/EscribirArticulo";
-import EliminarUsuario from "./pages/EliminarUsuario";
-import AprobarArticulo from "./pages/AprobarArticulo";
-import EditaPerfil from "./pages/EditaPerfil";
-import Probarhome from "./pages/probarhome";
+import Landing from './pages/Landing';
+import Home from './pages/Home';
+import Articulo from './pages/Articulo';
+import Login from './pages/login';
+import CrearCuenta from './pages/CrearCuenta';
+import Perfil from './pages/Perfil';
+import CrearVideojuego from './pages/CrearVideojuego';
+import EscribirArticulo from './pages/EscribirArticulo';
+import EliminarUsuario from './pages/EliminarUsuario';
+import AprobarArticulo from './pages/AprobarArticulo';
+import EditaPerfil from './pages/EditaPerfil';
+import Probarhome from './pages/probarhome';
 
 function App() {
   return (

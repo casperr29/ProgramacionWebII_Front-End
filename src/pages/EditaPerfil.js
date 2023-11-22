@@ -1,12 +1,11 @@
 import React from "react";
-import "../Components/Perfil.css";
+import "../components/Perfil.css";
 import "../css/editarcuenta.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import api from "../api.json";
+import api from '../utilities/api.json';
 import Cookies from "universal-cookie";
 
 const url = api.link;
@@ -20,8 +19,8 @@ const EditaPerfil = () => {
     imagen_usuario: "null",
   };
 
-  const [validated, HasBeenValidated] = useState(false);
-  const [auth, IsAuthorized] = useState(false);
+  // const [validated, HasBeenValidated] = useState(false);
+  // const [auth, IsAuthorized] = useState(false);
 
   const [profileData, setData] = useState(user);
 
@@ -45,7 +44,7 @@ const EditaPerfil = () => {
     await axios
       .get(url + "users/" + cookies.get("userId"), config)
       .then((response) => {
-        IsAuthorized(true);
+        //IsAuthorized(true);
         user._id = response.data.data._id;
         user.nombre_usuario = response.data.data.nombre_usuario;
         user.correo_usuario = response.data.data.correo_usuario;
@@ -63,35 +62,35 @@ const EditaPerfil = () => {
         console.error(error);
       });
 
-    HasBeenValidated(true);
+    //HasBeenValidated(true);
   }
 
-  const handleEditProfileImageSubmit = async (e) => {
-    e.preventDefault();
+  // const handleEditProfileImageSubmit = async (e) => {
+  //   e.preventDefault();
 
-    try {
-      if (password != cPassword) {
-        console.log("Las contraseñas no coinciden");
-        return;
-      }
+  //   try {
+  //     if (password != cPassword) {
+  //       console.log("Las contraseñas no coinciden");
+  //       return;
+  //     }
 
-      const response = await axios.patch(
-        url + "update_prof_pic/" + profileData._id,
-        {
-          correo_usuario: email,
-          password_usuario: password,
-          nombre_usuario: userName,
-        }
-      );
+  //     const response = await axios.patch(
+  //       url + "update_prof_pic/" + profileData._id,
+  //       {
+  //         correo_usuario: email,
+  //         password_usuario: password,
+  //         nombre_usuario: userName,
+  //       }
+  //     );
 
-      console.log(response.data);
+  //     console.log(response.data);
 
-      let pathProfile = "Perfil";
-      navigateHOME(`/${pathProfile}`);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     let pathProfile = "Perfil";
+  //     navigateHOME(`/${pathProfile}`);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();

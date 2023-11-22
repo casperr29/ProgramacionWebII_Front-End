@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NoticiasRow from './NoticiasRow';
 import axios from "axios";
-import api from "../api.json";  
+import api from '../utilities/api.json';
 
 const url = api.link;
 
