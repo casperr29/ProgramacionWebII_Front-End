@@ -1,28 +1,28 @@
-import React, { useState } from "react";
-import axios from "axios";
-import "../css/landing.css";
+import React, { useState } from 'react';
+import axios from 'axios';
 import api from '../utilities/api.json';
-import Cookies from "universal-cookie";
-import { useNavigate } from "react-router-dom";
+import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
+import '../css/landing.css';
 
 const url = api.link;
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   let navigateHome = useNavigate();
 
   function validateLoginForm() {
-    let email = document.forms["loginForm"]["loginIEmail"].value,
-      pass = document.forms["loginForm"]["loginIPass"].value;
+    let email = document.forms['loginForm']['loginIEmail'].value,
+      pass = document.forms['loginForm']['loginIPass'].value;
 
-    if (email === "") {
-      alert("Ingrese un email valido");
+    if (email === '') {
+      alert('Ingrese un email valido');
       return false;
     }
-    if (pass === "") {
-      alert("Ingrese la contraseña");
+    if (pass === '') {
+      alert('Ingrese la contraseña');
       return false;
     }
 
@@ -35,7 +35,7 @@ const Login = () => {
     if (!validateLoginForm()) return;
 
     try {
-      const response = await axios.post(url + "users/login", {
+      const response = await axios.post(url + 'users/login', {
         correo_usuario: email,
         password_usuario: password,
       });
@@ -43,11 +43,11 @@ const Login = () => {
       console.log(response.data);
 
       const cookies = new Cookies();
-      cookies.set("token", response.data.token, { path: "/" });
-      cookies.set("userId", response.data.data._id, { path: "/" });
-      cookies.set("permission", response.data.data.tipo_usuario, { path: "/" });
+      cookies.set('token', response.data.token, { path: '/' });
+      cookies.set('userId', response.data.data._id, { path: '/' });
+      //cookies.set('permission', response.data.data.tipo_usuario, { path: '/' });
 
-      let pathHome = "home";
+      let pathHome = 'home';
       navigateHome(`/${pathHome}`);
     } catch (error) {
       /*MANEJO DE ERRORES Y ADVERTENCIAS*/
@@ -55,10 +55,10 @@ const Login = () => {
 
       if (status !== 200 && status) {
         if (status === 404) {
-          alert("El correo ingresado no está asociado a ninguna cuenta");
+          alert('El correo ingresado no está asociado a ninguna cuenta');
         }
         if (status === 401) {
-          alert("El correo o la contraseña son incorrectos");
+          alert('El correo o la contraseña son incorrectos');
         }
       }
       //console.error(error.response.data.message);

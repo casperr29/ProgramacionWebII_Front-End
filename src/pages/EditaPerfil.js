@@ -1,22 +1,22 @@
-import React from "react";
-import "../components/Perfil.css";
-import "../css/editarcuenta.css";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import axios from "axios";
+import React from 'react';
+import '../css/Perfil.css';
+import '../css/editarcuenta.css';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
 import api from '../utilities/api.json';
-import Cookies from "universal-cookie";
+import Cookies from 'universal-cookie';
 
 const url = api.link;
 const storageUrl = api.storageUrl;
 
 const EditaPerfil = () => {
   let user = {
-    _id: "null",
-    nombre_usuario: "null",
-    correo_usuario: "null",
-    imagen_usuario: "null",
+    _id: 'null',
+    nombre_usuario: 'null',
+    correo_usuario: 'null',
+    imagen_usuario: 'null',
   };
 
   // const [validated, HasBeenValidated] = useState(false);
@@ -24,11 +24,11 @@ const EditaPerfil = () => {
 
   const [profileData, setData] = useState(user);
 
-  const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [cPassword, setCPassword] = useState("");
-  const [profileImage, setprofileImage] = useState("");
+  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [cPassword, setCPassword] = useState('');
+  const [profileImage, setprofileImage] = useState('');
 
   useEffect(() => {
     onLoad();
@@ -38,11 +38,11 @@ const EditaPerfil = () => {
     const cookies = new Cookies();
 
     const config = {
-      headers: { Authorization: `Bearer ${cookies.get("token")}` },
+      headers: { Authorization: `Bearer ${cookies.get('token')}` },
     };
 
     await axios
-      .get(url + "users/" + cookies.get("userId"), config)
+      .get(url + 'users/' + cookies.get('userId'), config)
       .then((response) => {
         //IsAuthorized(true);
         user._id = response.data.data._id;
@@ -99,7 +99,7 @@ const EditaPerfil = () => {
       const cookies = new Cookies();
 
       const config = {
-        headers: { Authorization: `Bearer ${cookies.get("token")}` },
+        headers: { Authorization: `Bearer ${cookies.get('token')}` },
       };
 
       if (password != cPassword) {
@@ -107,10 +107,10 @@ const EditaPerfil = () => {
       }
 
       const response = await axios.patch(
-        url + "users/" + profileData._id,
+        url + 'users/' + profileData._id,
         {
           correo_usuario: email,
-          password_usuario: password === "" ? undefined : password,
+          password_usuario: password === '' ? undefined : password,
           nombre_usuario: userName,
         },
         config
@@ -118,7 +118,7 @@ const EditaPerfil = () => {
 
       console.log(response.data);
 
-      let pathProfile = "Perfil";
+      let pathProfile = 'Perfil';
       navigateHOME(`/${pathProfile}`);
     } catch (error) {
       console.error(error);
@@ -128,34 +128,34 @@ const EditaPerfil = () => {
   /*funcion para ir al home*/
   let navigateHOME = useNavigate();
   const routeChange = () => {
-    let pathHOME = "home";
+    let pathHOME = 'home';
     navigateHOME(`/${pathHOME}`);
   };
   /*funcion para ir al eliminarusuario*/
   let navigateeliminarusuario = useNavigate();
   const routeChangeeliminarusuario = () => {
-    let patheliminarusuario = "eliminarusuario";
+    let patheliminarusuario = 'eliminarusuario';
     navigateeliminarusuario(`/${patheliminarusuario}`);
   };
 
   /*funcion para ir al crearvideojuego*/
   let navigatecrearv = useNavigate();
   const routeChangcrearv = () => {
-    let pathcrearv = "crearvideojuego";
+    let pathcrearv = 'crearvideojuego';
     navigatecrearv(`/${pathcrearv}`);
   };
 
   /*funcion para ir al cerrarsesión*/
   let navigatebye = useNavigate();
   const routeChangebye = () => {
-    let pathbye = "login";
+    let pathbye = 'login';
     navigatebye(`/${pathbye}`);
   };
 
   /*funcion para ir al perfil*/
   let navigateuser = useNavigate();
   const routeChangeuser = () => {
-    let pathuser = "perfil";
+    let pathuser = 'perfil';
     navigateuser(`/${pathuser}`);
   };
   return (
@@ -174,7 +174,7 @@ const EditaPerfil = () => {
             alt="header-logo"
           ></img>
           <a href="home" className="btn">
-            {" "}
+            {' '}
           </a>
           <input
             className="header-inputs"
@@ -188,7 +188,7 @@ const EditaPerfil = () => {
             alt="header-icon"
           ></img>
           <a href="eliminarusuario" className="btn">
-            {" "}
+            {' '}
           </a>
           <img
             className="header-icon"
@@ -197,7 +197,7 @@ const EditaPerfil = () => {
             alt="header-icon"
           ></img>
           <a href="crearvideojuego" className="btn">
-            {" "}
+            {' '}
           </a>
           <img
             className="header-icon"
@@ -206,7 +206,7 @@ const EditaPerfil = () => {
             alt="Perfil-de-usuario"
           ></img>
           <a href="login" className="btn">
-            {" "}
+            {' '}
           </a>
           <img
             className="header-icon"
@@ -215,7 +215,7 @@ const EditaPerfil = () => {
             alt="header-icon"
           ></img>
           <a href="login" className="btn">
-            {" "}
+            {' '}
           </a>
         </div>
 
