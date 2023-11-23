@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import HeaderAdmin from '../header-admin/index';
-import HeaderUser from '../header-user/index';
+import '../../css/Header.css';
+import HeaderAdmin from './header-admin';
+import HeaderUser from './header-user';
+
+const TYPE_ADMIN = 'admin',
+  TYPE_USER = 'user';
 
 export class Header extends Component {
   constructor(props) {
@@ -19,7 +23,7 @@ export class Header extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.status === true;
-  } // CONDICION PARA SABER SI SE VUELVE A RENDEREAR O ACTUALIZAR UN COMPONENTE
+  } // CONDICION PARA SABER SI SE VUELVE A TYPE_ADMINRENDEREAR O ACTUALIZAR UN COMPONENTE
 
   componentWillUpdate(nextProps, nextState) {
     // CONSOLE LOGS
@@ -32,9 +36,9 @@ export class Header extends Component {
   componentWillUnmount() {}
 
   render() {
-    return this.state.permission === 'admin' ? (
+    return this.state.permission === TYPE_ADMIN ? (
       <HeaderAdmin />
-    ) : this.state.permission === 'user' ? (
+    ) : this.state.permission === TYPE_USER ? (
       <HeaderUser />
     ) : (
       <div>Sin permisos</div>

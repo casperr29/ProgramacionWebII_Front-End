@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function HeaderUser() {
+function HeaderAdmin() {
   let navigateTo = useNavigate();
   return (
     <div className="header-1">
@@ -24,6 +24,15 @@ function HeaderUser() {
         className="header-icon"
         src="/assets/page.png"
         onClick={() => {
+          navigateTo('/aprobararticulo');
+        }}
+        alt="Crear-Publicacion-img"
+      ></img>
+
+      <img
+        className="header-icon"
+        src="/assets/videogame.png"
+        onClick={() => {
           navigateTo('/crearvideojuego');
         }}
         alt="Crear-Publicacion-img"
@@ -39,6 +48,15 @@ function HeaderUser() {
       ></img>
 
       <img
+        className="header-icon admin-only"
+        src="/assets/block-user.png"
+        onClick={() => {
+          navigateTo('/eliminarusuario');
+        }}
+        alt="Eliminar-Usuario-img"
+      ></img>
+
+      <img
         className="header-icon"
         src="/assets/cerrar-sesion.png"
         onClick={() => {
@@ -49,5 +67,4 @@ function HeaderUser() {
     </div>
   );
 }
-
-export default HeaderUser;
+export default HeaderAdmin;

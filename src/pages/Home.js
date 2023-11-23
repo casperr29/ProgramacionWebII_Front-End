@@ -5,8 +5,9 @@ import axios from 'axios';
 import api from '../utilities/api.json';
 import Cookies from 'universal-cookie';
 import { Navigate } from 'react-router-dom';
-import { Header } from '../components/header/index';
+import { Header } from '../components/header/header';
 import NoticiasList from '../components/NoticiasList';
+import { ListOfVideogameFilter } from '../components/videogame/listOfVideogameFilters';
 
 const Home = () => {
   const [validated, HasBeenValidated] = useState(false);
@@ -52,35 +53,14 @@ const Home = () => {
   return (
     <div>
       {auth ? (
-        <div>
-          <img
-            className="background"
-            src="/assets/Backgroundimg.png"
-            alt="background"
-          ></img>
+        <div className="background">
           <Header permission={permission}></Header>
-          <div className="div-container1">
-            <div className="categories">
-              <table className="categoria-table">
-                <tbody>
-                  <tr>
-                    <th>Categoria1</th>
-                    <th>Categoria2</th>
-                    <th>Categoria3</th>
-                    <th>Categoria4</th>
-                    <th>Categoria5</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <div className="noticiashome">
-              <section className="noticias-table">
-                <NoticiasList />
-              </section>
-            </div>
+          <ListOfVideogameFilter Videogames={null}></ListOfVideogameFilter>
+
+          <div className="noticiashome">
+            <section className="noticias-table">
+              <NoticiasList />
+            </section>
           </div>
         </div>
       ) : (

@@ -1,0 +1,13 @@
+.header-1 {
+  padding: 0.8rem 1.5rem;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  background-color: #374f63;
+}
+
+.header-1 .header-inputs {
+  margin: 0.7rem 2rem;
+  padding: 0rem 1rem;
+}

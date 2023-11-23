@@ -11,7 +11,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  let navigateHome = useNavigate();
+  let navigate = useNavigate();
 
   function validateLoginForm() {
     let email = document.forms['loginForm']['loginIEmail'].value,
@@ -40,15 +40,11 @@ const Login = () => {
         password_usuario: password,
       });
 
-      console.log(response.data);
-
       const cookies = new Cookies();
       cookies.set('token', response.data.token, { path: '/' });
       cookies.set('userId', response.data.data._id, { path: '/' });
-      //cookies.set('permission', response.data.data.tipo_usuario, { path: '/' });
 
-      let pathHome = 'home';
-      navigateHome(`/${pathHome}`);
+      navigate('/home');
     } catch (error) {
       /*MANEJO DE ERRORES Y ADVERTENCIAS*/
       const status = error.response.status;
@@ -61,7 +57,6 @@ const Login = () => {
           alert('El correo o la contraseña son incorrectos');
         }
       }
-      //console.error(error.response.data.message);
     }
   };
 
@@ -73,9 +68,7 @@ const Login = () => {
           src="assets/LogoFinal1.png"
           alt="LogoMewNews"
         ></img>
-        <form name="loginForm" onSubmit={loginUser}>
-          <br></br>
-
+        <form id="loginForm" name="loginForm" onSubmit={loginUser}>
           <input
             name="loginIEmail"
             id="loginIEmail"
@@ -85,8 +78,6 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <br></br>
-          <br></br>
 
           <input
             name="loginIPass"
@@ -98,20 +89,21 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <br></br>
-          <br></br>
-
           <input
             className="login-submit"
             type="submit"
             value="Iniciar Sesión"
           />
         </form>
-      </div>
-      <br></br>
-      <div className="login-rectangle2">
-        <label className="paregistro">
-          ¿No tienes Cuenta? <a href="crearcuenta">Regístrate</a>
+        <label className="toggleLR">
+          ¿No tienes Cuenta?
+          <p
+            onClick={() => {
+              navigate('/crearcuenta');
+            }}
+          >
+            Regístrate
+          </p>
         </label>
       </div>
     </div>

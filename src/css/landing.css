@@ -1,25 +1,13 @@
-.background {
-  height: 100%;
-  background-image: url("../assets/Backgroundimg.png");
-  background-size: cover;
+input ::placeholder {
+  color: #1b425f;
+  opacity: 1; /* Firefox */
 }
-/*width: 100%;
-    object-fit: contain;
-    background-repeat: no-repeat;
-    position: fixed;*/
-.desktop-overlap-group2 {
-  height: 830px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 1440px;
-}
+
 .desktop-noticias-para-gamers {
   color: #54e1ef;
   font-family: "Inter", Helvetica;
   font-size: 64px;
   font-weight: 400;
-  transform: translate(100%, 10%);
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
@@ -29,14 +17,12 @@
 }
 
 .desktop-logo-final {
-  transform: translate(50%, 10%);
   object-fit: cover;
   position: absolute;
   top: 70px;
   width: 766px;
 }
 .desktop-group {
-  transform: translate(125%, 10%);
   position: absolute;
   top: 580px;
   width: 422px;
@@ -71,7 +57,6 @@
 }
 
 .desktop-group2 {
-  transform: translate(125%, 10%);
   position: absolute;
   top: 660px;
   width: 422px;
@@ -80,61 +65,110 @@
 /*-------------login---------------------------*/
 
 .login-rectangle {
-  background-color: #406aa6;
-  height: 500px;
-  transform: translateX(25%);
-  position: absolute;
-  top: 100px;
-  width: 1000px;
-
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #406aa6;
+  height: 40rem;
+  width: 65%;
+  border-radius: 15px;
+}
+
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  margin: 1rem 0;
 }
 
 .loginlogo {
-  transform: translate(25%, 25%);
-  width: 600px;
+  width: 35rem;
 }
 
 .login-inputs {
-  width: 700px;
-  height: 40px;
-  transform: translate(25%, 90%);
-  background-color: #4e90ca;
+  width: 30rem;
+  height: 1rem;
   border: none;
-  color: white;
-  padding: 8px 4px;
+  color: #406aa6;
+  padding: 1.5rem 1rem;
+  margin: 1rem 0;
 }
 
 .login-submit {
-  width: 700px;
-  height: 40px;
-  transform: translate(25%, 90%);
+  width: 20rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   background-color: #1b425f;
   border-radius: 97px;
   border: none;
   color: white;
-  padding: 8px 4px;
+  padding: 0.5rem 0rem;
 }
 
-.login-rectangle2 {
-  background-color: #406aa6;
-  height: 90px;
-  position: absolute;
-  top: 625px;
-  transform: translateX(25%);
-  width: 1000px;
-  align-items: center;
-  justify-content: center;
-}
-
-.paregistro {
+.toggleLR {
   color: #ffffff;
+  display: flex;
+  flex-direction: row;
   font-family: "Inter", Helvetica;
-  font-size: 36px;
+  font-size: 1.5rem;
   font-weight: 400;
   height: 54px;
-  transform: translate(50%, 25%);
+}
+
+.toggleLR > p {
+  margin: 0 1rem;
+  color: #1b425f;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /*-------------crearcuenta---------------------------*/
+.Crearcuentarectangle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #406aa6;
+  height: 40rem;
+  width: 65%;
+  border-radius: 15px;
+}
+
+#registerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  margin: 1rem 0;
+}
+
+.Crearcuenta-logo {
+  width: 35rem;
+}
+
+.Crearcuenta-inputs {
+  width: 30rem;
+  height: 1rem;
+  border: none;
+  color: #406aa6;
+  padding: 1.5rem 1rem;
+  margin: 1rem 0;
+}
+
+.Crearcuenta-submit {
+  width: 20rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #1b425f;
+  border-radius: 97px;
+  border: none;
+  color: white;
+  padding: 0.5rem 0rem;
+}

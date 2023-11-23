@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function HeaderAdmin() {
+function HeaderUser() {
   let navigateTo = useNavigate();
   return (
     <div className="header-1">
@@ -21,19 +21,10 @@ function HeaderAdmin() {
       ></input>
 
       <img
-        className="header-icon admin-only"
-        src="/assets/block-user.png"
-        onClick={() => {
-          navigateTo('/eliminarusuario');
-        }}
-        alt="Eliminar-Usuario-img"
-      ></img>
-
-      <img
         className="header-icon"
         src="/assets/page.png"
         onClick={() => {
-          navigateTo('/crearvideojuego');
+          navigateTo('/escribirarticulo');
         }}
         alt="Crear-Publicacion-img"
       ></img>
@@ -58,4 +49,5 @@ function HeaderAdmin() {
     </div>
   );
 }
-export default HeaderAdmin;
+
+export default HeaderUser;
