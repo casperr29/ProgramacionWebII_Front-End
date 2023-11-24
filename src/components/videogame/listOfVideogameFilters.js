@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { VideogameFilterButton } from './videogameFilterButton';
+import axios from 'axios';
 import styled from 'styled-components';
 
 const ListContainer = styled.div`
@@ -8,9 +9,9 @@ const ListContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 4rem;
-  width: 80%;
+  width: fit-content;
   margin: 2rem 1rem;
-  padding: 2rem 3rem;
+  padding: 2rem 1rem;
   border-radius: 1rem;
   background-color: #284a6a;
 `;
@@ -25,11 +26,20 @@ export class ListOfVideogameFilter extends Component {
 
   componentWillMount() {}
 
-  componentDidMount() {}
+  componentDidMount() {
+    const videogames = [];
+
+    this.setState({
+      status: true,
+      videogames: videogames,
+    });
+  }
 
   componentWillReceiveProps(nextProps) {}
 
-  shouldComponentUpdate(nextProps, nextState) {}
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.status === true;
+  }
 
   componentWillUpdate(nextProps, nextState) {}
 
@@ -39,17 +49,17 @@ export class ListOfVideogameFilter extends Component {
 
   render() {
     var Videogames = this.state.Videogames || [
-      { text: 'Videojuego1' },
-      { text: 'Videojuego1' },
-      { text: 'Videojuego1' },
-      { text: 'Videojuego1' },
-      { text: 'Videojuego1' },
+      { nombre_videojuego: 'Videojuego1' },
+      { nombre_videojuego: 'Videojuego1' },
+      { nombre_videojuego: 'Videojuego1' },
+      { nombre_videojuego: 'Videojuego1' },
+      { nombre_videojuego: 'Videojuego1' },
     ];
 
     return (
       <ListContainer>
         {Videogames.map((x, i) => (
-          <VideogameFilterButton key={i} text={x.text} />
+          <VideogameFilterButton key={i} text={x.nombre_videojuego} />
         ))}
       </ListContainer>
     );

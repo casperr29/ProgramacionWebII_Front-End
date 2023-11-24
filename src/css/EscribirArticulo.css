@@ -12,16 +12,6 @@
   --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  text-decoration: none;
-  color: var(--white);
-}
-
 .container {
   display: flex;
   position: absolute;
@@ -44,37 +34,6 @@
   font-size: 30px;
 }
 
-input[type="text"] {
-  border-radius: 8px;
-  width: 70%;
-  background-color: var(--azul-claro);
-  color: var(--white);
-}
-
-input[type="texttarea"] {
-  margin-top: 8px;
-  border-radius: 8px;
-  background-color: var(--azul-claro);
-  color: var(--white);
-  width: 98%;
-  height: 100%;
-  padding: 10px;
-  font-size: 20px;
-}
-
-/*border:var(--border);
-   text-transform: uppercase;
-    width: 100%;
-    border-radius: .5rem;
-    background-color: var(--white);
-    padding:1.2rem 1.4rem;
-    font-size: 1.8rem;
-    margin:1rem 0;*/
-
-input::placeholder {
-  color: rgb(255, 255, 255);
-}
-
 .container-newarticle form .inputBox-title {
   text-align-last: center;
   text-align: center;
@@ -95,48 +54,4 @@ input::placeholder {
 
 #file {
   display: none;
-}
-
-.file-style {
-  font-family: "Trebuchet MS";
-  width: 500px;
-  height: 250px;
-  display: block;
-  background-color: #f5f4f4;
-  margin: auto;
-  cursor: pointer;
-  text-align: center;
-  padding: 80px;
-  border-radius: 0px;
-  border: 2px dashed var(--azul-neon);
-}
-
-.file-style:hover {
-  background-color: var(--azul-claro);
-}
-
-.noticias-container .Aprobar {
-  background-color: #b2c7d8;
-  width: 175px;
-  transform: translate(3%, 5%);
-  border-radius: 16px;
-  border: none;
-  color: white;
-  padding: 8px 4px;
-  font-size: 20px;
-}
-
-.noticias-container .Borrar {
-  background-color: #406aa6;
-  width: 175px;
-  transform: translate(3%, 5%);
-  border-radius: 16px;
-  border: none;
-  color: white;
-  padding: 8px 4px;
-  margin-top: 10px;
-  font-size: 20px;
-}
-.catpaw {
-  height: 40px;
 }

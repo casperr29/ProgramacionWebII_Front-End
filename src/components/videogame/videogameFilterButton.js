@@ -6,7 +6,7 @@ const Button = styled.button`
   display: flex;
   color: #ffffff;
   font-family: 'Inter', Helvetica;
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 400;
   margin: 0.5rem;
   padding: 0.25rem 1rem;
@@ -29,7 +29,9 @@ export class VideogameFilterButton extends Component {
 
   componentWillReceiveProps(nextProps) {}
 
-  shouldComponentUpdate(nextProps, nextState) {}
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.status === true;
+  }
 
   componentWillUpdate(nextProps, nextState) {}
 

@@ -36,28 +36,6 @@
   font-size: 30px;
 }
 
-.Aprobar {
-  background-color: #b2c7d8;
-  width: 175px;
-  transform: translate(3%, 5%);
-  border-radius: 97px;
-  border: none;
-  color: white;
-  padding: 8px 4px;
-}
-
-.Borrar {
-  background-color: #406aa6;
-  width: 175px;
-  transform: translate(3%, 5%);
-  border-radius: 97px;
-  border: none;
-  color: white;
-  padding: 8px 4px;
-}
-.catpaw {
-  height: 40px;
-}
 .AprobarPerfil {
   background-color: #b2c7d8;
   width: 175px;

@@ -9,7 +9,7 @@ function HeaderUser() {
         className="header-logo"
         src="/assets/LogoFinal1.png"
         onClick={() => {
-          useNavigate('/home');
+          navigateTo('/home');
         }}
         alt="header-logo"
       ></img>
@@ -20,32 +20,34 @@ function HeaderUser() {
         placeholder="Buscar..."
       ></input>
 
-      <img
-        className="header-icon"
-        src="/assets/page.png"
-        onClick={() => {
-          navigateTo('/escribirarticulo');
-        }}
-        alt="Crear-Publicacion-img"
-      ></img>
+      <div className="header-icon-container">
+        <img
+          className="header-icon"
+          src="/assets/page.png"
+          onClick={() => {
+            navigateTo('/escribirarticulo');
+          }}
+          alt="Crear-Publicacion-img"
+        ></img>
 
-      <img
-        className="header-icon"
-        src="/assets/newusericon.png"
-        onClick={() => {
-          navigateTo('/perfil');
-        }}
-        alt="Perfil-de-usuario-img"
-      ></img>
+        <img
+          className="header-icon"
+          src="/assets/newusericon.png"
+          onClick={() => {
+            navigateTo('/perfil');
+          }}
+          alt="Perfil-de-usuario-img"
+        ></img>
 
-      <img
-        className="header-icon"
-        src="/assets/cerrar-sesion.png"
-        onClick={() => {
-          navigateTo('/login');
-        }}
-        alt="Cerrar-sesion-img"
-      ></img>
+        <img
+          className="header-icon"
+          src="/assets/cerrar-sesion.png"
+          onClick={() => {
+            navigateTo('/login');
+          }}
+          alt="Cerrar-sesion-img"
+        ></img>
+      </div>
     </div>
   );
 }

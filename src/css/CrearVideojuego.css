@@ -9,84 +9,72 @@
   --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  text-decoration: none;
-  color: var(--white);
-}
-
-.container {
-  display: flex;
-  position: absolute;
-  padding: 0 !important;
-  margin-top: 150px;
-  margin-left: 100px !important;
-}
-
-.container-newarticle form {
-  position: relative;
-  width: 720px;
-  padding: 2rem;
-  border: none;
-  background-color: var(--azul);
-}
-
-.container-newarticle form h3 {
-  text-align: initial;
-  margin-top: 8px;
-  text-transform: uppercase;
-  font-size: 30px;
-}
-
-input[type="text"] {
-  border-radius: 8px;
-  width: 70%;
-  background-color: var(--azul-claro);
-  color: var(--white);
-}
-
-input[type="texttarea"] {
-  border-radius: 8px;
-  background-color: var(--azul-claro);
-  color: var(--white);
-  width: 98%;
-  height: 100%;
-  padding: 10px;
-  font-size: 20px;
-}
-
-/*border:var(--border);
-    width: 100%;
-    border-radius: .5rem;
-    background-color: var(--white);
-    padding:1.2rem 1.4rem;
-    font-size: 1.8rem;
-    margin:1rem 0;*/
-
-input::placeholder {
-  color: rgb(255, 255, 255);
-}
-
-.container-newarticle form .inputBox-title {
-  text-align-last: center;
-  text-align: center;
-  font-size: 20px;
-}
-
-.container-newarticle form .inputBox {
+.container-videogame {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+  width: 60rem;
+  background-color: var(--azul);
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.container-videogame form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 85%;
+  border: none;
+}
+
+.inputBox-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75%;
+  font-size: 1.7rem;
+}
+
+.inputBox-title input {
+  border-radius: 8px;
+  background-color: var(--white);
+  color: var(--black);
+  text-align-last: center;
+  text-align: center;
+}
+
+.inputBox-desc {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 1.5rem 0;
+}
+
+.inputBox-desc > h3 {
+  font-size: 1rem;
+}
+
+.inputBox-desc textarea {
+  border-radius: 8px;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 1.2rem;
+}
+
+.inputBox-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .noticias-container {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  margin-left: 50px;
 }
 
 #file {
@@ -94,16 +82,18 @@ input::placeholder {
 }
 
 .file-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-family: "Trebuchet MS";
-  width: 500px;
-  height: 250px;
-  display: block;
+  width: 15rem;
+  height: 15rem;
   background-color: #f5f4f4;
-  margin: auto;
+  margin: 2rem 3rem;
   cursor: pointer;
   text-align: center;
-  padding: 80px;
-  border-radius: 0px;
+  border-radius: 30px;
   border: 2px dashed var(--azul-neon);
 }
 
@@ -111,7 +101,7 @@ input::placeholder {
   background-color: var(--azul-claro);
 }
 
-.noticias-container .Aprobar {
+.Aprobar {
   background-color: #b2c7d8;
   width: 175px;
   transform: translate(3%, 5%);
@@ -122,17 +112,25 @@ input::placeholder {
   font-size: 20px;
 }
 
-.noticias-container .Borrar {
+.Borrar {
   background-color: #406aa6;
-  width: 175px;
-  transform: translate(3%, 5%);
-  border-radius: 16px;
-  border: none;
+  width: 10rem;
+  height: 5rem;
+  border-radius: 20px;
   color: white;
-  padding: 8px 4px;
-  margin-top: 10px;
-  font-size: 20px;
+  padding: 1rem 0.5rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 .catpaw {
-  height: 40px;
+  height: 3rem;
+}
+
+.videogame-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
 }

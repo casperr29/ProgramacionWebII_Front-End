@@ -8,37 +8,47 @@ const TYPE_ADMIN = 'admin',
 
 export class Header extends Component {
   constructor(props) {
+    // OBJETO QUE CONTIENE LAS PROPIEDADES QUE SE LE PASAN COMO PARAMETROS AL COMPONENTE CUANDO SE MANDA A RENDEREAR
     super(props);
     this.state = {
-      status: true,
-      permission: props.permission,
+      // EL STATE CONFORMA EL CONJUNTO DE CARACTERISTICAS Y VARIABLES DE UN COMPONENTE
+      status: false, // CONTROLA CUANDO DEBE ACTUALIZARSE UN COMPOENENTE
+      permission: props.permission, // LE PASAMOS LOS PERMISOS MEDIANTE EL OBJETO DE PROPS
     };
   }
 
   componentWillMount() {} // SE EJECUTA ANTES EL MONTAJE
 
-  componentDidMount() {} // SE EJECUTA DESPUES EL MONTAJE
+  componentDidMount() {
+    // PETICIONES A LA API
 
-  componentWillReceiveProps(nextProps) {} // SE EJECUTA CUANDO LOS PROPS CAMBIAN
+    // SETEAMOS TRUE AL STATUS PARA QUE SE VUELVA A ACTUALIZAR EL COMPONENTE
+    this.setState({
+      status: true,
+    });
+  } // SE EJECUTA DESPUES EL MONTAJE
+
+  componentWillReceiveProps(nextProps) {} // SE EJECUTA CUANDO LOS PROPS CAMBIAN -- CASI NO SE USA
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.status === true;
-  } // CONDICION PARA SABER SI SE VUELVE A TYPE_ADMINRENDEREAR O ACTUALIZAR UN COMPONENTE
+  } // CONDICION PARA SABER SI SE VUELVE A RENDEREAR O ACTUALIZAR UN COMPONENTE
 
   componentWillUpdate(nextProps, nextState) {
     // CONSOLE LOGS
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // NOTIFICAR
+    // NOTIFICAR CUANDO HAYA OCURRIDO UN CAMBIO
   }
 
   componentWillUnmount() {}
 
   render() {
-    return this.state.permission === TYPE_ADMIN ? (
+    // LA PARTE QUE SE DIBUJA EN PANTALLA
+    return this.state.permission === TYPE_ADMIN ? ( // SI EL PERMISO ES TIPO ADMINISTRADOR, RENDERIZARA EL HEADER CORRESPONDIENTE
       <HeaderAdmin />
-    ) : this.state.permission === TYPE_USER ? (
+    ) : this.state.permission === TYPE_USER ? ( // LO MISMO SI EL PERMISO ES DE TIPO USUARIO
       <HeaderUser />
     ) : (
       <div>Sin permisos</div>

@@ -14,9 +14,14 @@ const Home = () => {
   const [auth, IsAuthorized] = useState(false);
   const [permission, HasPermission] = useState('not-authorized');
   // const [newsData, setData] = useState(news);
-
+  const [videogames, setVideogames] = useState([]);
   const url = api.link;
-  //const storageUrl = api.storageUrl;
+
+  const cookies = new Cookies();
+
+  const config = {
+    headers: { Authorization: `Bearer ${cookies.get('token')}` },
+  };
 
   const ValidateSession = useCallback(() => {
     HasBeenValidated(true);
@@ -24,22 +29,28 @@ const Home = () => {
 
   useEffect(() => {
     onLoad();
+    loadVideogames();
   });
 
   // AL CARGAR LA PAGINA
   async function onLoad() {
-    const cookies = new Cookies();
-
-    const config = {
-      headers: { Authorization: `Bearer ${cookies.get('token')}` },
-    };
-
     await axios
       .get(url + 'users/' + cookies.get('userId'), config)
       .then((response) => {
         HasPermission(response.data.data.tipo_usuario ? 'admin' : 'user');
         IsAuthorized(true);
         ValidateSession();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  async function loadVideogames() {
+    await axios
+      .get(url + 'videogames/', config)
+      .then((response) => {
+        setVideogames(response.data.data ? response.data.data : []);
       })
       .catch((error) => {
         console.error(error);
@@ -54,14 +65,18 @@ const Home = () => {
     <div>
       {auth ? (
         <div className="background">
-          <Header permission={permission}></Header>
-          <ListOfVideogameFilter Videogames={null}></ListOfVideogameFilter>
+          <div className="container-begin">
+            <Header permission={permission}></Header>
+            <ListOfVideogameFilter
+              Videogames={videogames}
+            ></ListOfVideogameFilter>
+          </div>
 
-          <div className="noticiashome">
+          {/* <div className="noticiashome">
             <section className="noticias-table">
               <NoticiasList />
             </section>
-          </div>
+          </div> */}
         </div>
       ) : (
         <Navigate to={'/login'} replace={true} />

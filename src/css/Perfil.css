@@ -14,16 +14,6 @@
   --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  text-decoration: none;
-  color: var(--white);
-}
-
 .container-perfil {
   display: flex;
   position: absolute;

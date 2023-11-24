@@ -1,6 +1,19 @@
 input ::placeholder {
   color: #1b425f;
-  opacity: 1; /* Firefox */
+  opacity: 50%;
+}
+
+input {
+  padding: 0 0.5rem;
+}
+
+textarea ::placeholder {
+  color: #1b425f;
+  opacity: 50%;
+}
+
+textarea {
+  padding: 0.5rem 0.5rem;
 }
 
 .desktop-noticias-para-gamers {
@@ -97,6 +110,10 @@ input ::placeholder {
   margin: 1rem 0;
 }
 
+.login-inputs::placeholder {
+  background-color: #1b425f;
+}
+
 .login-submit {
   width: 20rem;
   height: 4rem;
@@ -159,6 +176,10 @@ input ::placeholder {
   color: #406aa6;
   padding: 1.5rem 1rem;
   margin: 1rem 0;
+}
+
+.Crearcuenta-inputs::placeholder {
+  background-color: #1b425f;
 }
 
 .Crearcuenta-submit {
