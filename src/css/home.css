@@ -14,17 +14,29 @@
 .container-begin {
   height: 100vh;
   width: 100%;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
 }
 
-.container-centered {
+.container-centered-c {
   height: 100vh;
   width: 100%;
+  padding: 1.7rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-centered-r {
+  height: 100vh;
+  width: 100%;
+  padding: 1.7rem;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }

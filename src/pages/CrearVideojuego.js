@@ -7,6 +7,7 @@ import Cookies from 'universal-cookie';
 import { Navigate } from 'react-router-dom';
 import { Header } from '../components/header/header';
 import { Videogame } from '../components/videogame/videogame';
+import { ListOfVideogameElements } from '../components/videogame/listOfVideogameElements';
 
 const CrearVideojuego = () => {
   const [validated, HasBeenValidated] = useState(false);
@@ -51,8 +52,9 @@ const CrearVideojuego = () => {
       {auth ? (
         <div className="background">
           <Header permission={permission}></Header>
-          <div className="container-centered">
-            <Videogame />
+          <div className="container-centered-r">
+            <Videogame type="create" />
+            <ListOfVideogameElements />
           </div>
         </div>
       ) : (

@@ -27,7 +27,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 85%;
+  width: 100%;
   border: none;
 }
 
@@ -50,7 +50,7 @@
 .inputBox-desc {
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: 100%;
   margin: 1.5rem 0;
 }
 
@@ -132,5 +132,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 75%;
+  width: 85%;
 }

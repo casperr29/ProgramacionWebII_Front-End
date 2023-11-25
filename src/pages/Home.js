@@ -65,13 +65,12 @@ const Home = () => {
     <div>
       {auth ? (
         <div className="background">
+          <Header permission={permission}></Header>
           <div className="container-begin">
-            <Header permission={permission}></Header>
             <ListOfVideogameFilter
               Videogames={videogames}
             ></ListOfVideogameFilter>
           </div>
-
           {/* <div className="noticiashome">
             <section className="noticias-table">
               <NoticiasList />

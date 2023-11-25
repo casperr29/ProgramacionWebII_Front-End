@@ -1,6 +1,8 @@
 import styled from 'styled-components';
-
 import React, { Component } from 'react';
+import { VideogameCreateForm } from './videogameCreateForm';
+import { VideogameViewForm } from './videogameViewForm';
+import { VideogameEditForm } from './videogameEditForm';
 
 const Button = styled.button`
   display: flex;
@@ -13,8 +15,9 @@ const Button = styled.button`
   background-color: transparent;
 `;
 
-const TYPE_EDIT = 'edit',
-  TYPE_DETAIL = 'detail';
+const TYPE_CREATE = 'create';
+const TYPE_EDIT = 'edit';
+const TYPE_DETAIL = 'detail';
 
 export class Videogame extends Component {
   constructor(props) {
@@ -48,49 +51,14 @@ export class Videogame extends Component {
   componentWillUnmount() {}
 
   render() {
-    return (
-      <div className="container-videogame">
-        <form>
-          <div className="inputBox-image">
-            <label htmlFor="file" className="file-style">
-              <img
-                className="img"
-                src="/assets/upload+to+cloud.png"
-                width="50"
-                alt="upload-img"
-              ></img>
-              <p>Subir foto</p>
-            </label>
-            <input type="file" id="file"></input>
-          </div>
-          <div className="videogame-content">
-            <div className="inputBox-title">
-              <input
-                type="text"
-                id="title"
-                name="title"
-                placeholder="Titulo"
-              ></input>
-            </div>
-            <div className="inputBox-desc">
-              <h3>Descripción</h3>
-              <textarea
-                id="description"
-                name="description"
-                placeholder="¿De qué trata el juego?"
-              ></textarea>
-            </div>
-          </div>
-          <button className="Borrar">
-            <img
-              className="catpaw"
-              src="/assets/CatFootprint.png"
-              alt="catpaw"
-            ></img>{' '}
-            Crear
-          </button>
-        </form>
-      </div>
+    return this.state.type === TYPE_CREATE ? (
+      <VideogameCreateForm />
+    ) : this.state.type === TYPE_DETAIL ? (
+      <VideogameViewForm videogame={this.state.videogame} />
+    ) : this.state.type === TYPE_EDIT ? (
+      <VideogameEditForm videogame={this.state.videogame} />
+    ) : (
+      <div></div>
     );
   }
 }
