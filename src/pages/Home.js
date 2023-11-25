@@ -6,14 +6,13 @@ import api from '../utilities/api.json';
 import Cookies from 'universal-cookie';
 import { Navigate } from 'react-router-dom';
 import { Header } from '../components/header/header';
-import NoticiasList from '../components/NoticiasList';
 import { ListOfVideogameFilter } from '../components/videogame/listOfVideogameFilters';
+import { ListOfNewsElements } from '../components/news/listOfNewsElements';
 
 const Home = () => {
   const [validated, HasBeenValidated] = useState(false);
   const [auth, IsAuthorized] = useState(false);
   const [permission, HasPermission] = useState('not-authorized');
-  // const [newsData, setData] = useState(news);
   const [videogames, setVideogames] = useState([]);
   const url = api.link;
 
@@ -70,12 +69,8 @@ const Home = () => {
             <ListOfVideogameFilter
               Videogames={videogames}
             ></ListOfVideogameFilter>
+            <ListOfNewsElements />
           </div>
-          {/* <div className="noticiashome">
-            <section className="noticias-table">
-              <NoticiasList />
-            </section>
-          </div> */}
         </div>
       ) : (
         <Navigate to={'/login'} replace={true} />

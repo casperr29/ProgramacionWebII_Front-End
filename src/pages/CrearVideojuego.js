@@ -13,12 +13,24 @@ const CrearVideojuego = () => {
   const [validated, HasBeenValidated] = useState(false);
   const [auth, IsAuthorized] = useState(false);
   const [permission, HasPermission] = useState('not-authorized');
+  const [formType, setFormType] = useState('create');
+  const [selVideogame, setSelVideogame] = useState({});
+
   const url = api.link;
 
   const cookies = new Cookies();
-
   const config = {
     headers: { Authorization: `Bearer ${cookies.get('token')}` },
+  };
+
+  const pull_FormType = (data) => {
+    setFormType(data);
+    console.log(data);
+  };
+
+  const pull_SelVideogame = (data) => {
+    setSelVideogame(data);
+    console.log(data);
   };
 
   const ValidateSession = useCallback(() => {
@@ -51,10 +63,13 @@ const CrearVideojuego = () => {
     <div>
       {auth ? (
         <div className="background">
-          <Header permission={permission}></Header>
+          <Header permission={permission} />
           <div className="container-centered-r">
-            <Videogame type="create" />
-            <ListOfVideogameElements />
+            <Videogame type={formType} videogame={selVideogame} />
+            <ListOfVideogameElements
+              funcType={pull_FormType}
+              funSelVid={pull_SelVideogame}
+            />
           </div>
         </div>
       ) : (

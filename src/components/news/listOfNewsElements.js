@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { VideogameElement } from './videogameElement';
+import { NewsElement } from './newsElement';
 import styled from 'styled-components';
 import axios from 'axios';
 import api from '../../utilities/api.json';
@@ -20,20 +20,18 @@ const ListContainer = styled.div`
   height: 100%;
   width: 100%;
   height: 100%;
-  margin: 2rem 1rem;
-  padding: 2rem;
+  margin: 1rem 1rem;
+  padding: 1rem;
   border-radius: 1rem;
   background-color: #284a6a;
 `;
 
-export class ListOfVideogameElements extends Component {
+export class ListOfNewsElements extends Component {
   constructor(props) {
     super(props);
     this.state = {
       status: false,
-      videogames: [],
-      funcType: props.funcType,
-      funSelVid: props.funSelVid,
+      news: [],
     };
   }
 
@@ -41,12 +39,13 @@ export class ListOfVideogameElements extends Component {
 
   async componentDidMount() {
     await axios
-      .get(url + 'videogames/', config)
+      .get(url + 'news/', config)
       .then((response) => {
         this.setState({
           status: true,
-          videogames: response.data.data,
+          news: response.data,
         });
+        console.log(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -68,13 +67,8 @@ export class ListOfVideogameElements extends Component {
   render() {
     return (
       <ListContainer>
-        {this.state.videogames.map((x, i) => (
-          <VideogameElement
-            key={i}
-            videogame={x}
-            funcType={this.props.funcType}
-            funSelVid={this.props.funSelVid}
-          />
+        {this.state.news.map((x, i) => (
+          <NewsElement key={i} news={x} />
         ))}
       </ListContainer>
     );

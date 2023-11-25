@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import React, { Component } from 'react';
-import { VideogameCreateForm } from './videogameCreateForm';
-import { VideogameViewForm } from './videogameViewForm';
-import { VideogameEditForm } from './videogameEditForm';
+import { NewsCreateForm } from './newsCreateForm';
+import { NewsEditForm } from './newsEditForm';
 
 const Button = styled.button`
   display: flex;
@@ -17,15 +16,14 @@ const Button = styled.button`
 
 const TYPE_CREATE = 'create';
 const TYPE_EDIT = 'edit';
-const TYPE_DETAIL = 'detail';
 
-export class Videogame extends Component {
+export class News extends Component {
   constructor(props) {
     super(props);
     this.state = {
       status: props.status || false,
       type: props.type || 'detail',
-      videogame: props.videogame || {
+      news: props.news || {
         _id: '',
         nombre_videojuego: '',
         imagen_videojuego: '',
@@ -52,11 +50,9 @@ export class Videogame extends Component {
 
   render() {
     return this.state.type === TYPE_CREATE ? (
-      <VideogameCreateForm />
-    ) : this.state.type === TYPE_DETAIL ? (
-      <VideogameViewForm videogame={this.state.videogame} />
+      <NewsCreateForm />
     ) : this.state.type === TYPE_EDIT ? (
-      <VideogameEditForm videogame={this.state.videogame} />
+      <NewsEditForm news={this.state.news} />
     ) : (
       <div></div>
     );

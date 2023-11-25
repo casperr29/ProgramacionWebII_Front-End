@@ -1,35 +1,53 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
 import axios from 'axios';
 import api from '../../utilities/api.json';
 import Cookies from 'universal-cookie';
 
 const url = api.link;
-const storageurl = api.storageUrl;
-const cookies = new Cookies();
 
+const cookies = new Cookies();
+const author = cookies.get('userId');
 const config = {
   headers: { Authorization: `Bearer ${cookies.get('token')}` },
 };
 
-export class VideogameEditForm extends Component {
+const ErrorMsg = styled.span`
+  color: 'red' !important;
+  margin-bottom: '0.4rem';
+  padding: '0.2rem';
+  background-color: '#ff8f8f';
+  border-radius: '10px';
+`;
+
+export class NewsCreateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: false,
       fields: { title: '', description: '' },
       errors: {},
-      videogame: props.videogame || {
-        _id: '',
-        nombre_videojuego: '',
-        imagen_videojuego: '',
-        descripcion_videojuego: '',
-      },
+      status: false,
+      videogames: [],
+      sel_Videogame: '',
     };
   }
 
   componentWillMount() {}
 
-  componentDidMount() {}
+  async componentDidMount() {
+    await axios
+      .get(url + 'videogames/', config)
+      .then((response) => {
+        this.setState({
+          status: true,
+          videogames: response.data.data,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   componentWillReceiveProps(nextProps) {}
 
@@ -42,6 +60,11 @@ export class VideogameEditForm extends Component {
   componentDidUpdate(prevProps, prevState) {}
 
   componentWillUnmount() {}
+
+  handleComboChange = (e) => {
+    this.setState({ sel_Videogame: e.target.value });
+    console.log(this.state.sel_Videogame);
+  };
 
   handleValidation() {
     let fields = this.state.fields;
@@ -72,18 +95,20 @@ export class VideogameEditForm extends Component {
     this.setState({ fields });
   }
 
-  async editVideogame(e) {
+  async createNews(e) {
     e.preventDefault();
 
     let fields = this.state.fields;
 
     if (this.handleValidation()) {
       await axios
-        .patch(
-          url + 'videogames/' + this.state.videogame._id,
+        .post(
+          url + 'news/',
           {
-            nombre_videojuego: fields['title'],
-            descripcion_videojuego: fields['description'],
+            autor_noticia: author,
+            titulo_noticia: fields['title'],
+            contenido_noticia: fields['description'],
+            videojuego_noticia: this.state.sel_Videogame,
           },
           config
         )
@@ -92,7 +117,7 @@ export class VideogameEditForm extends Component {
             status: true,
           });
 
-          alert('Videojuego editado con exito');
+          alert('Artículo creado con exito');
         })
         .catch((error) => {
           console.error(error);
@@ -104,27 +129,13 @@ export class VideogameEditForm extends Component {
 
   render() {
     return (
-      <div className="container-videogame">
+      <div className="container-news">
         <form
-          name="videogame-form"
-          className="videogame-form"
-          onSubmit={this.editVideogame.bind(this)}
+          name="news-form"
+          className="news-form"
+          onSubmit={this.createNews.bind(this)}
         >
-          <div className="inputBox-image">
-            <label htmlFor="file" className="file-style">
-              <img
-                className="img"
-                src={
-                  storageurl + this.state.videogame.imagen_videojuego.file_name
-                }
-                width="50"
-                alt="upload-img"
-              ></img>
-              <p>Subir foto</p>
-            </label>
-            <input type="file" id="file"></input>
-          </div>
-          <div className="videogame-content">
+          <div className="news-content">
             <div className="inputBox-title">
               <ErrorMsg>{this.state.errors['title']}</ErrorMsg>
               <input
@@ -133,7 +144,7 @@ export class VideogameEditForm extends Component {
                 name="title"
                 placeholder="Titulo"
                 onChange={this.handleChange.bind(this, 'title')}
-                value={this.state.videogame.nombre_videojuego}
+                value={this.state.fields['title']}
               ></input>
             </div>
             <div className="inputBox-desc">
@@ -142,19 +153,31 @@ export class VideogameEditForm extends Component {
               <textarea
                 id="description"
                 name="description"
-                placeholder="¿De qué trata el juego?"
+                placeholder="¿Qué ocurrió?"
                 onChange={this.handleChange.bind(this, 'description')}
-                value={this.state.videogame.descripcion_videojuego}
+                value={this.state.fields['description']}
               ></textarea>
             </div>
+            <h3>Videojuego</h3>
+            <select
+              className="select-videogame"
+              value={this.state.sel_Videogame}
+              onChange={this.handleComboChange}
+            >
+              {this.state.videogames.map((x) => (
+                <option key={x._id} value={x._id}>
+                  {x.nombre_videojuego}
+                </option>
+              ))}
+            </select>
           </div>
-          <button className="btn-submit">
+          <button className="btn-submit" type="submit">
             <img
               className="catpaw"
               src="/assets/CatFootprint.png"
               alt="catpaw"
-            ></img>
-            Guardar
+            ></img>{' '}
+            Crear
           </button>
         </form>
       </div>

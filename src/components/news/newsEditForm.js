@@ -11,14 +11,14 @@ const config = {
   headers: { Authorization: `Bearer ${cookies.get('token')}` },
 };
 
-export class VideogameEditForm extends Component {
+export class NewsEditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       status: false,
       fields: { title: '', description: '' },
       errors: {},
-      videogame: props.videogame || {
+      news: props.news || {
         _id: '',
         nombre_videojuego: '',
         imagen_videojuego: '',
@@ -72,7 +72,7 @@ export class VideogameEditForm extends Component {
     this.setState({ fields });
   }
 
-  async editVideogame(e) {
+  async editNews(e) {
     e.preventDefault();
 
     let fields = this.state.fields;
@@ -80,7 +80,7 @@ export class VideogameEditForm extends Component {
     if (this.handleValidation()) {
       await axios
         .patch(
-          url + 'videogames/' + this.state.videogame._id,
+          url + 'news/' + this.state.news._id,
           {
             nombre_videojuego: fields['title'],
             descripcion_videojuego: fields['description'],
@@ -92,7 +92,7 @@ export class VideogameEditForm extends Component {
             status: true,
           });
 
-          alert('Videojuego editado con exito');
+          alert('Artículo editado con exito');
         })
         .catch((error) => {
           console.error(error);
@@ -104,19 +104,17 @@ export class VideogameEditForm extends Component {
 
   render() {
     return (
-      <div className="container-videogame">
+      <div className="container-news">
         <form
-          name="videogame-form"
-          className="videogame-form"
-          onSubmit={this.editVideogame.bind(this)}
+          name="news-form"
+          className="news-form"
+          onSubmit={this.editNews.bind(this)}
         >
           <div className="inputBox-image">
             <label htmlFor="file" className="file-style">
               <img
                 className="img"
-                src={
-                  storageurl + this.state.videogame.imagen_videojuego.file_name
-                }
+                src={storageurl + this.state.news.imagen_videojuego.file_name}
                 width="50"
                 alt="upload-img"
               ></img>
@@ -124,7 +122,7 @@ export class VideogameEditForm extends Component {
             </label>
             <input type="file" id="file"></input>
           </div>
-          <div className="videogame-content">
+          <div className="news-content">
             <div className="inputBox-title">
               <ErrorMsg>{this.state.errors['title']}</ErrorMsg>
               <input
@@ -133,7 +131,7 @@ export class VideogameEditForm extends Component {
                 name="title"
                 placeholder="Titulo"
                 onChange={this.handleChange.bind(this, 'title')}
-                value={this.state.videogame.nombre_videojuego}
+                value={this.state.news.nombre_videojuego}
               ></input>
             </div>
             <div className="inputBox-desc">
@@ -142,9 +140,9 @@ export class VideogameEditForm extends Component {
               <textarea
                 id="description"
                 name="description"
-                placeholder="¿De qué trata el juego?"
+                placeholder="¿Qué ocurrió?"
                 onChange={this.handleChange.bind(this, 'description')}
-                value={this.state.videogame.descripcion_videojuego}
+                value={this.state.news.descripcion_videojuego}
               ></textarea>
             </div>
           </div>

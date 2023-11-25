@@ -1,39 +1,39 @@
-import React from "react";
-import "../css/EliminarUsuario.css";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import '../css/EliminarUsuario.css';
+import { useNavigate } from 'react-router-dom';
 
 const EliminarUsuario = () => {
   /*funcion para ir al home*/
   let navigateHOME = useNavigate();
   const routeChange = () => {
-    let pathHOME = "home";
+    let pathHOME = 'home';
     navigateHOME(`/${pathHOME}`);
   };
   /*funcion para ir al eliminarusuario*/
   let navigateeliminarusuario = useNavigate();
   const routeChangeeliminarusuario = () => {
-    let patheliminarusuario = "eliminarusuario";
+    let patheliminarusuario = 'eliminarusuario';
     navigateeliminarusuario(`/${patheliminarusuario}`);
   };
 
   /*funcion para ir al crearvideojuego*/
   let navigatecrearv = useNavigate();
   const routeChangcrearv = () => {
-    let pathcrearv = "crearvideojuego";
+    let pathcrearv = 'crearvideojuego';
     navigatecrearv(`/${pathcrearv}`);
   };
 
   /*funcion para ir al cerrarsesión*/
   let navigatebye = useNavigate();
   const routeChangebye = () => {
-    let pathbye = "login";
+    let pathbye = 'login';
     navigatebye(`/${pathbye}`);
   };
 
   /*funcion para ir al perfil*/
   let navigateuser = useNavigate();
   const routeChangeuser = () => {
-    let pathuser = "perfil";
+    let pathuser = 'perfil';
     navigateuser(`/${pathuser}`);
   };
 
@@ -52,7 +52,7 @@ const EliminarUsuario = () => {
           alt="header-logo"
         ></img>
         <a href="home" className="btn">
-          {" "}
+          {' '}
         </a>
         <input
           className="header-inputs"
@@ -66,7 +66,7 @@ const EliminarUsuario = () => {
           alt="header-icon"
         ></img>
         <a href="eliminarusuario" className="btn">
-          {" "}
+          {' '}
         </a>
         <img
           className="header-icon"
@@ -75,7 +75,7 @@ const EliminarUsuario = () => {
           alt="header-icon"
         ></img>
         <a href="crearvideojuego" className="btn">
-          {" "}
+          {' '}
         </a>
         <img
           className="header-icon"
@@ -84,7 +84,7 @@ const EliminarUsuario = () => {
           alt="Perfil-de-usuario"
         ></img>
         <a href="login" className="btn">
-          {" "}
+          {' '}
         </a>
         <img
           className="header-icon"
@@ -93,7 +93,7 @@ const EliminarUsuario = () => {
           alt="header-icon"
         ></img>
         <a href="login" className="btn">
-          {" "}
+          {' '}
         </a>
       </div>
       <div className="usuarios">
@@ -116,15 +116,15 @@ const EliminarUsuario = () => {
                   className="catpaw"
                   src="/assets/CatFootprint.png"
                   alt="catpaw"
-                ></img>{" "}
+                ></img>{' '}
                 Restaurar cuenta
               </button>
-              <button className="Borrar">
+              <button className="btn-submit">
                 <img
                   className="catpaw"
                   src="/assets/CatFootprint.png"
                   alt="catpaw"
-                ></img>{" "}
+                ></img>{' '}
                 Eliminar Cuenta
               </button>
             </td>
@@ -145,15 +145,15 @@ const EliminarUsuario = () => {
                   className="catpaw"
                   src="/assets/CatFootprint.png"
                   alt="catpaw"
-                ></img>{" "}
+                ></img>{' '}
                 Restaurar cuenta
               </button>
-              <button className="Borrar">
+              <button className="btn-submit">
                 <img
                   className="catpaw"
                   src="/assets/CatFootprint.png"
                   alt="catpaw"
-                ></img>{" "}
+                ></img>{' '}
                 Eliminar Cuenta
               </button>
             </td>
@@ -174,15 +174,15 @@ const EliminarUsuario = () => {
                   className="catpaw"
                   src="/assets/CatFootprint.png"
                   alt="catpaw"
-                ></img>{" "}
+                ></img>{' '}
                 Restaurar cuenta
               </button>
-              <button className="Borrar">
+              <button className="btn-submit">
                 <img
                   className="catpaw"
                   src="/assets/CatFootprint.png"
                   alt="catpaw"
-                ></img>{" "}
+                ></img>{' '}
                 Eliminar Cuenta
               </button>
             </td>

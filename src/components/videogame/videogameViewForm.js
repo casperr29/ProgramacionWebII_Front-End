@@ -48,7 +48,7 @@ export class VideogameViewForm extends Component {
               <h3>{this.state.videogame.descripcion_videojuego}</h3>
             </div>
           </div>
-          <button className="Borrar">
+          <button className="btn-submit">
             <img
               className="catpaw"
               src="/assets/CatFootprint.png"

@@ -25,6 +25,15 @@ function HeaderAdmin() {
           className="header-icon"
           src="/assets/page.png"
           onClick={() => {
+            navigateTo('/escribirarticulo');
+          }}
+          alt="Crear-Publicacion-img"
+        ></img>
+
+        <img
+          className="header-icon"
+          src="/assets/approve-news.png"
+          onClick={() => {
             navigateTo('/aprobararticulo');
           }}
           alt="Crear-Publicacion-img"

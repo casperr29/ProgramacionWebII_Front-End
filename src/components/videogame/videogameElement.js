@@ -44,6 +44,8 @@ export class VideogameElement extends Component {
         imagen_videojuego: '',
         descripcion_videojuego: '',
       },
+      funcType: props.funcType,
+      funSelVid: props.funSelVid,
     };
   }
 
@@ -64,14 +66,22 @@ export class VideogameElement extends Component {
   componentWillUpdate(nextProps, nextState) {}
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.state.videogame);
+    //console.log(this.state.videogame);
   }
 
   componentWillUnmount() {}
 
   render() {
+    const clickOnElement = () => {
+      this.props.funcType(this.state.videogame);
+      this.props.funcType('edit');
+      this.setState({
+        status: true,
+      });
+    };
+
     return (
-      <ElementButton>
+      <ElementButton onClick={clickOnElement}>
         <ElementImg
           alt="Videogame-image"
           src={storageUrl + this.state.videogame.imagen_videojuego.file_name}

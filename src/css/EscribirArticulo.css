@@ -12,46 +12,133 @@
   --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
-.container {
-  display: flex;
-  position: absolute;
-  padding: 0 !important;
-  margin-top: 150px;
-  margin-left: 100px !important;
-}
-
-.container-newarticle form {
-  position: relative;
-  width: 720px;
-  padding: 2rem;
-  border: none;
-  background-color: var(--azul);
-}
-
-.container-newarticle form h3 {
-  text-align: initial;
-  margin-top: 8px;
-  font-size: 30px;
-}
-
-.container-newarticle form .inputBox-title {
-  text-align-last: center;
-  text-align: center;
-  font-size: 20px;
-}
-
-.container-newarticle form .inputBox {
+.container-news {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+  width: 60rem;
+  background-color: var(--azul);
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.container-news form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
+.inputBox-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75%;
+  font-size: 1.7rem;
+}
+
+.inputBox-title input {
+  border-radius: 8px;
+  background-color: var(--white);
+  color: var(--black);
+  text-align-last: center;
+  text-align: center;
+}
+
+.inputBox-desc {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.inputBox-desc > h3 {
+  font-size: 1rem;
+}
+
+.inputBox-desc textarea {
+  border-radius: 8px;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 1.2rem;
+}
+
+.inputBox-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .noticias-container {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  margin-left: 50px;
 }
 
 #file {
   display: none;
+}
+
+.file-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Trebuchet MS";
+  width: 15rem;
+  height: 15rem;
+  background-color: #f5f4f4;
+  margin: 2rem 3rem;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px dashed var(--azul-neon);
+}
+
+.file-style:hover {
+  background-color: var(--azul-claro);
+}
+
+.Aprobar {
+  background-color: #b2c7d8;
+  width: 175px;
+  transform: translate(3%, 5%);
+  border-radius: 16px;
+  border: none;
+  color: white;
+  padding: 8px 4px;
+  font-size: 20px;
+}
+
+.catpaw {
+  height: 3rem;
+}
+
+.news-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+}
+
+.select-videogame {
+  color: var(--black);
+  font-size: 1.5rem;
+  border: none;
+  padding: 0 0.5rem;
+  border-radius: 10px;
+}
+
+.select-videogame option {
+  color: var(--black);
+  font-size: 1.5rem;
+  border: none;
+  padding: 0 0.5rem;
+  border-radius: 10px;
 }
