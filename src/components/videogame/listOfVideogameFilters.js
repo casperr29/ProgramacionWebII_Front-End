@@ -21,6 +21,7 @@ export class ListOfVideogameFilter extends Component {
     super(props);
     this.state = {
       Videogames: props.Videogames,
+      funSelVid: props.funSelVid,
     };
   }
 
@@ -59,7 +60,11 @@ export class ListOfVideogameFilter extends Component {
     return (
       <ListContainer>
         {Videogames.map((x, i) => (
-          <VideogameFilterButton key={i} text={x.nombre_videojuego} />
+          <VideogameFilterButton
+            key={i}
+            text={x.nombre_videojuego}
+            funSelVid={this.props.funSelVid}
+          />
         ))}
       </ListContainer>
     );

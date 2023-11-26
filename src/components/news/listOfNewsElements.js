@@ -32,6 +32,7 @@ export class ListOfNewsElements extends Component {
     this.state = {
       status: false,
       news: [],
+      filter: props.selVideogame || '',
     };
   }
 
@@ -39,7 +40,13 @@ export class ListOfNewsElements extends Component {
 
   async componentDidMount() {
     await axios
-      .get(url + 'news/', config)
+      .get(
+        url + 'news/',
+        this.state.filter !== ''
+          ? { videojuego_noticia: this.state.filter }
+          : {},
+        config
+      )
       .then((response) => {
         this.setState({
           status: true,

@@ -14,11 +14,16 @@ function HeaderAdmin() {
         alt="header-logo"
       ></img>
 
-      <input
-        className="header-inputs"
-        type="text"
-        placeholder="Buscar..."
-      ></input>
+      <form className="header-form flex-fill">
+        <input
+          className="flex-fill"
+          type="text"
+          placeholder="Buscar..."
+        ></input>
+        <button className="search-btn" type="submit">
+          <img src="/assets/search.png"></img>
+        </button>
+      </form>
 
       <div className="header-icon-container">
         <img

@@ -14,12 +14,19 @@ const Home = () => {
   const [auth, IsAuthorized] = useState(false);
   const [permission, HasPermission] = useState('not-authorized');
   const [videogames, setVideogames] = useState([]);
+  const [selVideogame, setSelVideogame] = useState('');
+
   const url = api.link;
 
   const cookies = new Cookies();
 
   const config = {
     headers: { Authorization: `Bearer ${cookies.get('token')}` },
+  };
+
+  const pull_SelVideogame = (data) => {
+    setSelVideogame(data);
+    console.log(data);
   };
 
   const ValidateSession = useCallback(() => {
@@ -68,8 +75,10 @@ const Home = () => {
           <div className="container-begin">
             <ListOfVideogameFilter
               Videogames={videogames}
+              funSelVid={pull_SelVideogame}
+              selVideogame={selVideogame}
             ></ListOfVideogameFilter>
-            <ListOfNewsElements />
+            <ListOfNewsElements selVideogame={selVideogame} />
           </div>
         </div>
       ) : (
