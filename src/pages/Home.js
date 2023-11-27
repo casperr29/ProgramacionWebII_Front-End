@@ -15,6 +15,7 @@ const Home = () => {
   const [permission, HasPermission] = useState('not-authorized');
   const [videogames, setVideogames] = useState([]);
   const [selVideogame, setSelVideogame] = useState('');
+  const [filterString, setTitleFilter] = useState('');
 
   const url = api.link;
 
@@ -28,6 +29,11 @@ const Home = () => {
     setSelVideogame(data);
     console.log(data);
   };
+
+  const pull_textFilter = (filter) =>{
+    setTitleFilter(filter);
+    console.log(filterString);
+  }
 
   const ValidateSession = useCallback(() => {
     HasBeenValidated(true);
@@ -71,14 +77,13 @@ const Home = () => {
     <div>
       {auth ? (
         <div className="background">
-          <Header permission={permission}></Header>
+          <Header permission={permission} funTitleFilter={pull_textFilter}></Header>
           <div className="container-begin">
             <ListOfVideogameFilter
               Videogames={videogames}
               funSelVid={pull_SelVideogame}
-              selVideogame={selVideogame}
             ></ListOfVideogameFilter>
-            <ListOfNewsElements selVideogame={selVideogame} />
+            <ListOfNewsElements selVideogame={selVideogame} textFilter={filterString}/>
           </div>
         </div>
       ) : (

@@ -22,6 +22,8 @@ export class ListOfVideogameFilter extends Component {
     this.state = {
       Videogames: props.Videogames,
       funSelVid: props.funSelVid,
+      selVideogame: props.selVideogame,
+      textFilter: props.textFilter
     };
   }
 

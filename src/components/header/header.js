@@ -14,6 +14,7 @@ export class Header extends Component {
       // EL STATE CONFORMA EL CONJUNTO DE CARACTERISTICAS Y VARIABLES DE UN COMPONENTE
       status: false, // CONTROLA CUANDO DEBE ACTUALIZARSE UN COMPOENENTE
       permission: props.permission, // LE PASAMOS LOS PERMISOS MEDIANTE EL OBJETO DE PROPS
+      funTitleFilter: props.funTitleFilter,
     };
   }
 
@@ -47,9 +48,9 @@ export class Header extends Component {
   render() {
     // LA PARTE QUE SE DIBUJA EN PANTALLA
     return this.state.permission === TYPE_ADMIN ? ( // SI EL PERMISO ES TIPO ADMINISTRADOR, RENDERIZARA EL HEADER CORRESPONDIENTE
-      <HeaderAdmin />
+      <HeaderAdmin funTitleFilter={this.props.funTitleFilter}/>
     ) : this.state.permission === TYPE_USER ? ( // LO MISMO SI EL PERMISO ES DE TIPO USUARIO
-      <HeaderUser />
+      <HeaderUser funTitleFilter={this.props.funTitleFilter} />
     ) : (
       <div>Sin permisos</div>
     );

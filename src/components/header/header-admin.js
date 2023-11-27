@@ -1,8 +1,18 @@
 import React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function HeaderAdmin() {
+function HeaderAdmin({funTitleFilter}) {
   let navigateTo = useNavigate();
+
+  const [searchText, setSearchText] = useState('');
+
+  function setTitleFilter(e){
+    e.preventDefault();
+    funTitleFilter(searchText);
+  }
+
+
   return (
     <div className="header-1">
       <img
@@ -14,11 +24,12 @@ function HeaderAdmin() {
         alt="header-logo"
       ></img>
 
-      <form className="header-form flex-fill">
+      <form className="header-form flex-fill" onSubmit={(e) => setTitleFilter(e)}>
         <input
           className="flex-fill"
           type="text"
           placeholder="Buscar..."
+          onChange={(e) => setSearchText(e.target.value)}
         ></input>
         <button className="search-btn" type="submit">
           <img src="/assets/search.png"></img>
