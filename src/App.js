@@ -15,7 +15,6 @@ import EscribirArticulo from './pages/EscribirArticulo';
 import EliminarUsuario from './pages/EliminarUsuario';
 import AprobarArticulo from './pages/AprobarArticulo';
 import EditaPerfil from './pages/EditaPerfil';
-import Probarhome from './pages/probarhome';
 
 function App() {
   return (
@@ -32,7 +31,6 @@ function App() {
       <Route path="eliminarusuario" element={<EliminarUsuario />} />
       <Route path="aprobararticulo" element={<AprobarArticulo />} />
       <Route path="editprofile" element={<EditaPerfil />} />
-      <Route path="try" element={<Probarhome />} />
     </Routes>
   );
 }
