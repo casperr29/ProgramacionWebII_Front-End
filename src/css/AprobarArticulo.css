@@ -21,8 +21,9 @@
   font-weight: 400;
 }
 .noticias-table-rectangle {
-  width: 90%;
-  height: 490px;
+  width: 20rem;
+  height: 20rem;
+  margin: 0 1rem;
   background-color: #406aa6;
 }
 

@@ -19,8 +19,9 @@ export class Articulo extends Component {
     super(props);
     this.state = {
       permission: 'user',
-      status: false,
-      validated: false,
+      status: true,
+      auth: true,
+      validated: true,
       newsId: props.newsId || '',
       news: props.news || {
         _id: '',
@@ -50,6 +51,12 @@ export class Articulo extends Component {
       })
       .catch((error) => {
         console.error(error);
+        this.setState({
+          status: true,
+          validated: false,
+          auth: false,
+          permission: 'user',
+        });
       });
 
     await axios

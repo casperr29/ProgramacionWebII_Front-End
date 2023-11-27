@@ -59,6 +59,15 @@ const IconElement = styled.div`
   font-weight: bold;
 `;
 
+function ElementNavigator(newsId, text) {
+  const navigateTo = useNavigate();
+  return (
+    <ElementData onClick={() => navigateTo('/redirect/' + newsId)}>
+      text
+    </ElementData>
+  );
+}
+
 export class NewsElement extends Component {
   constructor(props) {
     super(props);
@@ -115,20 +124,9 @@ export class NewsElement extends Component {
 
   componentWillUnmount() {}
 
-  navigateTo(path) {
-    useNavigate(path);
-  }
-
   render() {
-    const clickOnElement = () => {
-      navigateTo('/articulo/' + this.state.news._id);
-      this.setState({
-        status: true,
-      });
-    };
-
     return (
-      <ElementButton onClick={clickOnElement}>
+      <ElementButton>
         <ElementImg
           alt="News-image"
           src={'/assets/Backgroundimg.png'}

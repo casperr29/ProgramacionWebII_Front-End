@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Landing from './pages/Landing';
 import Home from './pages/Home';
 import { Articulo } from './pages/Articulo';
-import { NewsLinker } from './components/news/newsLinker';
+import NewsLinker from './components/news/newsLinker';
 import Login from './pages/login';
 import CrearCuenta from './pages/CrearCuenta';
 import Perfil from './pages/Perfil';
@@ -22,6 +22,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="home" element={<Home />} />
+      <Route path="redirect/:id" element={<NewsLinker />} />
       <Route path="articulo/:id" element={<Articulo />} />
       <Route path="login" element={<Login />} />
       <Route path="crearcuenta" element={<CrearCuenta />} />

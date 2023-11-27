@@ -1,31 +1,14 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
+import { Articulo } from '../../pages/Articulo';
 
-export class NewsLinker extends Component {
-  constructor(props) {
-    super(props);
-  }
+const NewsLinker = () => {
+  let { id } = useParams();
 
-  componentWillMount() {}
+  // We can use the `useParams` hook here to access
+  // the dynamic pieces of the URL.
 
-  componentDidMount() {}
+  return <Articulo newsId={id} />;
+};
 
-  componentWillReceiveProps(nextProps) {}
-
-  shouldComponentUpdate(nextProps, nextState) {}
-
-  componentWillUpdate(nextProps, nextState) {}
-
-  componentDidUpdate(prevProps, prevState) {}
-
-  componentWillUnmount() {}
-
-  render() {
-    // We can use the `useParams` hook here to access
-    // the dynamic pieces of the URL.
-    let { id } = useParams();
-
-    return <Articulo newsId={id} />;
-  }
-}
+export default NewsLinker;
