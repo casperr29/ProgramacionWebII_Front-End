@@ -1,11 +1,12 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 import './css/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Landing from './pages/Landing';
 import Home from './pages/Home';
-import Articulo from './pages/Articulo';
+import { Articulo } from './pages/Articulo';
+import { NewsLinker } from './components/news/newsLinker';
 import Login from './pages/login';
 import CrearCuenta from './pages/CrearCuenta';
 import Perfil from './pages/Perfil';
@@ -21,7 +22,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="home" element={<Home />} />
-      <Route path="articulo" element={<Articulo />} />
+      <Route path="articulo/:id" element={<Articulo />} />
       <Route path="login" element={<Login />} />
       <Route path="crearcuenta" element={<CrearCuenta />} />
       <Route path="perfil" element={<Perfil />} />

@@ -121,7 +121,6 @@ export class VideogameCreateForm extends Component {
                 name="title"
                 placeholder="Titulo"
                 onChange={this.handleChange.bind(this, 'title')}
-                value={this.state.fields['title']}
               ></input>
             </div>
             <div className="inputBox-desc">
@@ -132,7 +131,6 @@ export class VideogameCreateForm extends Component {
                 name="description"
                 placeholder="¿De qué trata el juego?"
                 onChange={this.handleChange.bind(this, 'description')}
-                value={this.state.fields['description']}
               ></textarea>
             </div>
           </div>

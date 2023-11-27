@@ -121,7 +121,7 @@ export class NewsElement extends Component {
 
   render() {
     const clickOnElement = () => {
-      navigateTo('/articulo' + this.state.news._id);
+      navigateTo('/articulo/' + this.state.news._id);
       this.setState({
         status: true,
       });

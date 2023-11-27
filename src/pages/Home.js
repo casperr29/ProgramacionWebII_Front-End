@@ -9,7 +9,7 @@ import { Header } from '../components/header/header';
 import { ListOfVideogameFilter } from '../components/videogame/listOfVideogameFilters';
 import { ListOfNewsElements } from '../components/news/listOfNewsElements';
 
-const Home = () => {
+function Home() {
   const [validated, HasBeenValidated] = useState(false);
   const [auth, IsAuthorized] = useState(false);
   const [permission, HasPermission] = useState('not-authorized');
@@ -30,10 +30,10 @@ const Home = () => {
     console.log(data);
   };
 
-  const pull_textFilter = (filter) =>{
+  const pull_textFilter = (filter) => {
     setTitleFilter(filter);
     console.log(filterString);
-  }
+  };
 
   const ValidateSession = useCallback(() => {
     HasBeenValidated(true);
@@ -77,13 +77,19 @@ const Home = () => {
     <div>
       {auth ? (
         <div className="background">
-          <Header permission={permission} funTitleFilter={pull_textFilter}></Header>
+          <Header
+            permission={permission}
+            funTitleFilter={pull_textFilter}
+          ></Header>
           <div className="container-begin">
             <ListOfVideogameFilter
               Videogames={videogames}
               funSelVid={pull_SelVideogame}
             ></ListOfVideogameFilter>
-            <ListOfNewsElements selVideogame={selVideogame} textFilter={filterString}/>
+            <ListOfNewsElements
+              selVideogame={selVideogame}
+              textFilter={filterString}
+            />
           </div>
         </div>
       ) : (
@@ -91,5 +97,5 @@ const Home = () => {
       )}
     </div>
   );
-};
+}
 export default Home;
