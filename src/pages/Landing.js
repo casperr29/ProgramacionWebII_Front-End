@@ -17,16 +17,12 @@ const Landing = () => {
   };
   return (
     <div className="background">
-      <h1 className="desktop-noticias-para-gamers">Noticias para Gamers </h1>
       <img className="desktop-logo-final" src="/assets/LogoFinal1.png" />
+      <h1 className="desktop-noticias-para-gamers">Noticias para Gamers </h1>
       <div className="desktop-group">
         <button className="desktop-button" onClick={routeChange}>
-          {' '}
-          Iniciar Sesión{' '}
+          Iniciar Sesión
         </button>
-      </div>
-
-      <div className="desktop-group2">
         <button className="desktop-button" onClick={routeChange2}>
           Regístrate
         </button>

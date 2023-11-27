@@ -1,46 +1,28 @@
+.Editarcuentainputs::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
 .Editarcuentainputs {
-  width: 500px;
-  height: 40px;
+  width: 20rem;
+  height: 2.5rem;
+  margin: 0.5rem;
   background-color: #4e90ca;
   border: none;
   color: white;
-  padding: 8px 4px;
-}
-.Editarcuentainputstext {
-  width: 500px;
-  height: 40px;
-  transform: translate(5%, 5%);
-  background-color: #4e90ca;
-  border: none;
-  color: white;
-  padding: 8px 4px;
-}
-#nombrecompletoregistro {
-  width: 500px;
-  height: 40px;
-  transform: translate(50%, 5%);
-  background-color: #4e90ca;
-  border: none;
-  color: white;
-  padding: 8px 4px;
-}
-#nombreusuarioEditar {
-  width: 500px;
-  height: 40px;
-  transform: translate(5%, 5%);
-  background-color: #4e90ca;
-  border: none;
-  color: white;
-  padding: 8px 4px;
+  border-radius: 20px;
 }
 
 .Editarcuentasubmit {
-  width: 500px;
-  height: 40px;
-  transform: translate(5%, 5%);
+  width: 10rem;
+  height: 4rem;
+  margin: 1rem;
+  padding: 0.5rem 0.5rem;
   background-color: #1b425f;
   border-radius: 97px;
   border: none;
   color: white;
-  padding: 8px 4px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
 }

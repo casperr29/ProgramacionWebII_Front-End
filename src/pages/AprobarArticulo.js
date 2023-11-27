@@ -59,9 +59,7 @@ const AprobarArticulo = () => {
                     src="/assets/imagen1.png"
                     alt="noticias-img"
                   ></img>
-                  <br></br>
                   <label className="titulo">Titulo 1</label>
-                  <br></br>
                   <label>Descripción...</label>
                 </div>
                 <button className="Aprobar">
@@ -88,9 +86,7 @@ const AprobarArticulo = () => {
                     src="/assets/imagen3.png"
                     alt="noticias-img"
                   ></img>
-                  <br></br>
                   <label className="titulo">Titulo 1</label>
-                  <br></br>
                   <label>Descripción...</label>
                 </div>
                 <button className="Aprobar">
@@ -117,9 +113,7 @@ const AprobarArticulo = () => {
                     src="/assets/image2.png"
                     alt="noticias-img"
                   ></img>
-                  <br></br>
                   <label className="titulo">Titulo 1</label>
-                  <br></br>
                   <label>Descripción...</label>
                 </div>
                 <button className="Aprobar">

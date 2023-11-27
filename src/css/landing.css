@@ -19,39 +19,39 @@ textarea {
 .desktop-noticias-para-gamers {
   color: #54e1ef;
   font-family: "Inter", Helvetica;
-  font-size: 64px;
+  font-size: 3.2rem;
   font-weight: 400;
   letter-spacing: 0;
   line-height: normal;
-  position: absolute;
   text-align: center;
-  top: 400px;
-  width: 515px;
+  width: fit-content;
+  margin: 1rem 0;
 }
 
 .desktop-logo-final {
-  object-fit: cover;
-  position: absolute;
-  top: 70px;
-  width: 766px;
+  width: 40rem;
 }
 .desktop-group {
-  position: absolute;
-  top: 580px;
-  width: 422px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 1rem;
+  margin: 0.5rem 0;
 }
 
 .desktop-button {
   background-color: #1b425f;
   border-radius: 97px;
-  height: 64px;
-  position: relative;
-  width: 420px;
+  height: 5rem;
+  width: 20rem;
   border: none;
   color: white;
   font-family: "Inter", Helvetica;
-  font-size: 36px;
-  padding: 8px 4px;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
 }
 
 .button-text {
@@ -60,19 +60,12 @@ textarea {
   font-size: 36px;
   font-weight: 400;
   height: 54px;
-  left: 19px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
   text-align: center;
   top: 0;
   width: 381px;
-}
-
-.desktop-group2 {
-  position: absolute;
-  top: 660px;
-  width: 422px;
 }
 
 /*-------------login---------------------------*/
@@ -108,10 +101,6 @@ textarea {
   color: #406aa6;
   padding: 1.5rem 1rem;
   margin: 1rem 0;
-}
-
-.login-inputs::placeholder {
-  background-color: #1b425f;
 }
 
 .login-submit {

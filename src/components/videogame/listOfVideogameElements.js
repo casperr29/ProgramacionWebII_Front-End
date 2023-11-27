@@ -17,8 +17,9 @@ const ListContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: start;
+  flex-wrap: wrap;
   height: 100%;
-  width: 100%;
+  width: 85%;
   height: 100%;
   margin: 2rem 1rem;
   padding: 2rem;

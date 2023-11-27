@@ -1,16 +1,14 @@
 .noticias {
   background-color: none;
-  height: 500px;
-  transform: translate(10%, 0%);
-  position: absolute;
-  top: 100px;
-  width: 1250px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
 .noticias-table {
-  transform: translate(2%, 1%);
   width: 98%;
 }
 
@@ -25,11 +23,11 @@
   height: 20rem;
   margin: 0 1rem;
   background-color: #406aa6;
+  border-radius: 20px;
 }
 
 .noticias-img {
-  width: 360px;
-  transform: translate(1%, 2%);
+  width: 90%;
 }
 
 .titulo {
@@ -39,8 +37,7 @@
 
 .AprobarPerfil {
   background-color: #b2c7d8;
-  width: 175px;
-  transform: translate(3%, -10%);
+  width: 3rem;
   border-radius: 97px;
   border: none;
   color: white;
@@ -48,8 +45,7 @@
 }
 .Borrarperfil {
   background-color: #406aa6;
-  width: 175px;
-  transform: translate(3%, -10%);
+  width: 3rem;
   border-radius: 97px;
   border: none;
   color: white;

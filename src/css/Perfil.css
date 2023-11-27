@@ -50,8 +50,17 @@
 .usuarios-table-rectangle-perfil {
   border-radius: 50px;
   background-color: #374f63;
-  padding: 0 3rem;
+  padding: 1rem 3rem;
   text-align: center;
+}
+
+.usuario-info-perfil {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0.5rem 0;
 }
 
 .usuarios-img-perfil {

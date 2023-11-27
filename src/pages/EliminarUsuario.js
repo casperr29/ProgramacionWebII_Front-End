@@ -1,102 +1,55 @@
 import React from 'react';
 import '../css/EliminarUsuario.css';
-import { useNavigate } from 'react-router-dom';
+import { useCallback, useEffect, useState } from 'react';
+import axios from 'axios';
+import api from '../utilities/api.json';
+import Cookies from 'universal-cookie';
+import { Navigate } from 'react-router-dom';
+import { Header } from '../components/header/header';
 
 const EliminarUsuario = () => {
-  /*funcion para ir al home*/
-  let navigateHOME = useNavigate();
-  const routeChange = () => {
-    let pathHOME = 'home';
-    navigateHOME(`/${pathHOME}`);
-  };
-  /*funcion para ir al eliminarusuario*/
-  let navigateeliminarusuario = useNavigate();
-  const routeChangeeliminarusuario = () => {
-    let patheliminarusuario = 'eliminarusuario';
-    navigateeliminarusuario(`/${patheliminarusuario}`);
+  const [validated, HasBeenValidated] = useState(false);
+  const [auth, IsAuthorized] = useState(false);
+  const [permission, HasPermission] = useState('not-authorized');
+
+  const url = api.link;
+
+  const cookies = new Cookies();
+
+  const config = {
+    headers: { Authorization: `Bearer ${cookies.get('token')}` },
   };
 
-  /*funcion para ir al crearvideojuego*/
-  let navigatecrearv = useNavigate();
-  const routeChangcrearv = () => {
-    let pathcrearv = 'crearvideojuego';
-    navigatecrearv(`/${pathcrearv}`);
-  };
+  const ValidateSession = useCallback(() => {
+    HasBeenValidated(true);
+  }, []);
 
-  /*funcion para ir al cerrarsesión*/
-  let navigatebye = useNavigate();
-  const routeChangebye = () => {
-    let pathbye = 'login';
-    navigatebye(`/${pathbye}`);
-  };
+  useEffect(() => {
+    onLoad();
+  });
 
-  /*funcion para ir al perfil*/
-  let navigateuser = useNavigate();
-  const routeChangeuser = () => {
-    let pathuser = 'perfil';
-    navigateuser(`/${pathuser}`);
-  };
+  // AL CARGAR LA PAGINA
+  async function onLoad() {
+    await axios
+      .get(url + 'users/' + cookies.get('userId'), config)
+      .then((response) => {
+        HasPermission(response.data.data.tipo_usuario ? 'admin' : 'user');
+        IsAuthorized(true);
+        ValidateSession();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
-  return (
-    <div>
-      <img
-        className="backgroundeliminate"
-        src="/assets/Backgroundimg.png"
-        alt="Backgroundimg"
-      ></img>
-      <div className="header-1">
-        <img
-          className="header-logo"
-          src="/assets/LogoFinal1.png"
-          onClick={routeChange}
-          alt="header-logo"
-        ></img>
-        <a href="home" className="btn">
-          {' '}
-        </a>
-        <input
-          className="header-inputs"
-          type="text"
-          placeholder="Buscar..."
-        ></input>
-        <img
-          className="header-icon"
-          src="/assets/block-user.png"
-          onClick={routeChangeeliminarusuario}
-          alt="header-icon"
-        ></img>
-        <a href="eliminarusuario" className="btn">
-          {' '}
-        </a>
-        <img
-          className="header-icon"
-          src="/assets/page.png"
-          onClick={routeChangcrearv}
-          alt="header-icon"
-        ></img>
-        <a href="crearvideojuego" className="btn">
-          {' '}
-        </a>
-        <img
-          className="header-icon"
-          src="/assets/newusericon.png"
-          onClick={routeChangeuser}
-          alt="Perfil-de-usuario"
-        ></img>
-        <a href="login" className="btn">
-          {' '}
-        </a>
-        <img
-          className="header-icon"
-          src="/assets/cerrar-sesion.png"
-          onClick={routeChangebye}
-          alt="header-icon"
-        ></img>
-        <a href="login" className="btn">
-          {' '}
-        </a>
-      </div>
-      <div className="usuarios">
+  if (!validated) {
+    return null;
+  }
+
+  return auth ? (
+    <div className="background">
+      <Header permission={permission}></Header>
+      <div className="container-centered-c">
         <table className="usuarios-table">
           <tr>
             <td>
@@ -190,6 +143,8 @@ const EliminarUsuario = () => {
         </table>
       </div>
     </div>
+  ) : (
+    <Navigate to={'/login'} replace={true} />
   );
 };
 

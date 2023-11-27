@@ -55,7 +55,6 @@ const Perfil = () => {
           storageUrl + response.data.data.foto_usuario.file_name;
 
         setData(user);
-
         ValidateSession();
       })
       .catch((error) => {

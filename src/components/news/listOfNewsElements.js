@@ -17,6 +17,7 @@ const ListContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: start;
+  flex-wrap: wrap;
   height: 100%;
   width: 100%;
   height: 100%;
@@ -42,7 +43,11 @@ export class ListOfNewsElements extends Component {
   async componentDidMount() {
     await axios
       .get(
-        url + 'news/' + (this.state.textFilter !== ''? 'search/' + this.state.textFilter : ''),
+        url +
+          'news/' +
+          (this.state.textFilter !== ''
+            ? 'search/' + this.state.textFilter
+            : ''),
         this.state.filter !== ''
           ? { videojuego_noticia: this.state.filter }
           : {},

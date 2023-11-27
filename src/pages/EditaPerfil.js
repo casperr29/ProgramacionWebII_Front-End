@@ -2,6 +2,7 @@ import React from 'react';
 import '../css/Perfil.css';
 import '../css/editarcuenta.css';
 import { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import api from '../utilities/api.json';
 import Cookies from 'universal-cookie';
@@ -18,6 +19,8 @@ const config = {
 };
 
 const EditaPerfil = () => {
+  let navigateTo = useNavigate();
+
   let user = {
     _id: 'null',
     nombre_usuario: 'null',
@@ -64,7 +67,8 @@ const EditaPerfil = () => {
         setEmail(user.correo_usuario);
         setprofileImage(user.imagen_usuario);
 
-        console.log(response.data.data);
+        console.log(permission);
+        console.log(response.data.data.tipo_usuario);
 
         ValidateSession();
       })
@@ -107,13 +111,8 @@ const EditaPerfil = () => {
     e.preventDefault();
 
     try {
-      const cookies = new Cookies();
-
-      const config = {
-        headers: { Authorization: `Bearer ${cookies.get('token')}` },
-      };
-
       if (password != cPassword) {
+        alert('Las contraseñas deben coincidir');
         return;
       }
 
@@ -129,8 +128,7 @@ const EditaPerfil = () => {
 
       console.log(response.data);
 
-      let pathProfile = 'Perfil';
-      navigateHOME(`/${pathProfile}`);
+      navigateTo('/Perfil');
     } catch (error) {
       console.error(error);
     }
@@ -143,7 +141,7 @@ const EditaPerfil = () => {
   return auth ? (
     <div className="background">
       <Header permission={permission} />
-      <div className="container-begin">
+      <div className="container-centered-c">
         <div className="usuarios-table-rectangle-perfil">
           <div className="usuario-info-perfil">
             <img
@@ -151,6 +149,9 @@ const EditaPerfil = () => {
               src={profileImage}
               alt="usuarios-img-perfil"
             ></img>
+            <label htmlFor="image_input">
+              Seleccionar foto a la cual quiera cambiar
+            </label>
             <input
               type="file"
               id="image_input"
@@ -160,57 +161,57 @@ const EditaPerfil = () => {
                 setprofileImage(e.target.files);
               }}
             />
-            <label htmlFor="image_input">
-              Seleccionar foto a la cual quiera cambiar
-            </label>
-            <label className="usuario"></label>
-            <label className="correo"></label>
           </div>
-        </div>
+          <div className="noticias-perfil">
+            <form
+              className="d-flex flex-column justify-content-center align-items-center"
+              onSubmit={handleEditSubmit}
+            >
+              <h3>Editar Usuario</h3>
 
-        <div className="noticias-perfil">
-          <form onSubmit={handleEditSubmit}>
-            <h3>Editar Usuario</h3>
+              <label htmlFor="correo">Correo Electronico</label>
+              <input
+                id="correo"
+                className="Editarcuentainputs"
+                type="email"
+                placeholder="Correo Electronico"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              ></input>
 
-            <input
-              className="Editarcuentainputs"
-              type="email"
-              placeholder="Correo Electronico"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            ></input>
+              <label htmlFor="nombreusuarioEditar">Nombre de usuario</label>
+              <input
+                className="Editarcuentainputs"
+                id="nombreusuarioEditar"
+                type="text"
+                placeholder="Nombre de Usuario"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              ></input>
 
-            <input
-              className="Editarcuentainputstext"
-              id="nombreusuarioEditar"
-              type="text"
-              placeholder="Nombre de Usuario"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-            ></input>
+              <input
+                className="Editarcuentainputs"
+                type="password"
+                placeholder="Contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              ></input>
 
-            <input
-              className="Editarcuentainputs"
-              type="password"
-              placeholder="Contraseña"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            ></input>
+              <input
+                className="Editarcuentainputs"
+                type="password"
+                placeholder="Confirmar Contraseña"
+                value={cPassword}
+                onChange={(e) => setCPassword(e.target.value)}
+              ></input>
 
-            <input
-              className="Editarcuentainputs"
-              type="password"
-              placeholder="Confirmar Contraseña"
-              value={cPassword}
-              onChange={(e) => setCPassword(e.target.value)}
-            ></input>
-
-            <input
-              className="Editarcuentasubmit"
-              type="submit"
-              placeholder="Confirmar Cambios"
-            ></input>
-          </form>
+              <input
+                className="Editarcuentasubmit"
+                type="submit"
+                placeholder="Confirmar Cambios"
+              ></input>
+            </form>
+          </div>
         </div>
       </div>
     </div>
